@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Simulator & Masterclass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="docker-logo">
+                    <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954-5.43h2.119a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V3.574a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.186.184.186m-2.964 0h2.119a.186.186 0 00.185-.186V3.574a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.888c0 .102.083.186.186.186m-2.93 0h2.12a.185.185 0 00.184-.186V3.574a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.888c0 .102.082.186.184.186M5.136 11.078h2.119a.186.186 0 00.185-.185V9.006a.186.186 0 00-.185-.186H5.136a.186.186 0 00-.186.186v1.888c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H2.206a.185.185 0 00-.184.186v1.888c0 .102.082.185.184.185m2.93 2.941h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H5.136a.185.185 0 00-.186.185v1.894c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.894c0 .102.082.185.184.185m8.066-2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185m2.954-5.882h2.119a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m0 2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185M23.635 11.94h-1.668v-.866c0-1.145-.926-2.074-2.066-2.074h-.667V6.29c0-.102-.083-.185-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v3.138a2.53 2.53 0 00-1.393 2.261v5.794c0 1.385 1.118 2.508 2.497 2.508h20.84c1.379 0 2.497-1.123 2.497-2.508v-5.794c0-1.249-.91-2.275-2.108-2.476" fill="currentColor"/>
+                </svg>
+                <span>DockerSim</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-section="intro">Introduction</li>
+                <li data-section="concepts">Core Concepts</li>
+                <li data-section="vm-vs-container">VM vs Container</li>
+                <li data-section="dockerfile">Dockerfile Guide</li>
+                <li data-section="containerize">Containerize App</li>
+                <li data-section="simulator">Interactive Simulator</li>
+                <li data-section="aws">AWS Deployment</li>
+                <li data-section="documentation">Documentation</li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <!-- Introduction Section -->
+            <section id="intro" class="section active">
+                <div class="hero">
+                    <h1>Master Docker</h1>
+                    <p class="subtitle">Interactive Simulator & Comprehensive Guide</p>
+                    <p class="description">
+                        Learn how to build, ship, and run applications anywhere. 
+                        Understand the magic behind containers through interactive simulations.
+                    </p>
+                    <button class="cta-btn" onclick="navigateTo('simulator')">Start Simulating</button>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>What is Docker?</h3>
+                        <p>Docker is an open platform for developing, shipping, and running applications. It enables you to separate your applications from your infrastructure so you can deliver software quickly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Why use it?</h3>
+                        <p>Consistency across environments, speed of deployment, isolation of dependencies, and scalability.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Concepts Section -->
+            <section id="concepts" class="section">
+                <h2>Core Concepts</h2>
+                <div class="concepts-container">
+                    <div class="concept-card">
+                        <div class="icon">📦</div>
+                        <h3>Images</h3>
+                        <p>A read-only template with instructions for creating a Docker container. Often based on another image, with some additional customization.</p>
+                        <div class="analogy">Analogy: The "Blueprint" or "Recipe"</div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="icon">🚢</div>
+                        <h3>Containers</h3>
+                        <p>A runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI.</p>
+                        <div class="analogy">Analogy: The "House" built from the blueprint</div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="icon">🐳</div>
+                        <h3>Docker Daemon</h3>
+                        <p>The background service running on the host that manages building, running, and distributing Docker containers.</p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="icon">📄</div>
+                        <h3>Dockerfile</h3>
+                        <p>A text document that contains all the commands a user could call on the command line to assemble an image.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VM vs Container Section -->
+            <section id="vm-vs-container" class="section">
+                <h2>Containers vs Virtual Machines</h2>
+                <div class="comparison-view">
+                    <div class="architecture-diagram">
+                        <div class="stack container-stack">
+                            <h4>Containers</h4>
+                            <div class="layer app">App A</div>
+                            <div class="layer bins">Bins/Libs</div>
+                            <div class="layer app">App B</div>
+                            <div class="layer bins">Bins/Libs</div>
+                            <div class="layer engine">Docker Engine</div>
+                            <div class="layer os">Host OS</div>
+                            <div class="layer infrastructure">Infrastructure</div>
+                        </div>
+                        <div class="stack vm-stack">
+                            <h4>Virtual Machines</h4>
+                            <div class="layer app">App A</div>
+                            <div class="layer bins">Bins/Libs</div>
+                            <div class="layer guest-os">Guest OS</div>
+                            <div class="layer app">App B</div>
+                            <div class="layer bins">Bins/Libs</div>
+                            <div class="layer guest-os">Guest OS</div>
+                            <div class="layer hypervisor">Hypervisor</div>
+                            <div class="layer infrastructure">Infrastructure</div>
+                        </div>
+                    </div>
+                    <div class="comparison-text">
+                        <h3>Key Differences</h3>
+                        <ul>
+                            <li><strong>OS Usage:</strong> Containers share the host OS kernel, making them lightweight. VMs include a full Guest OS.</li>
+                            <li><strong>Size:</strong> Containers are typically MBs; VMs are GBs.</li>
+                            <li><strong>Startup Time:</strong> Containers start in seconds; VMs take minutes.</li>
+                            <li><strong>Isolation:</strong> VMs provide stronger isolation (hardware level), while containers provide process-level isolation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dockerfile Guide Section -->
+            <section id="dockerfile" class="section">
+                <h2>Writing a Dockerfile</h2>
+                <div class="dockerfile-builder">
+                    <div class="explanation-panel">
+                        <h3>Anatomy of a Dockerfile</h3>
+                        <p>A Dockerfile is a script of instructions. Click on a command to see what it does.</p>
+                        <ul class="instruction-list">
+                            <li onclick="highlightLine('FROM')"><strong>FROM</strong>: Sets the Base Image.</li>
+                            <li onclick="highlightLine('WORKDIR')"><strong>WORKDIR</strong>: Sets the working directory.</li>
+                            <li onclick="highlightLine('COPY')"><strong>COPY</strong>: Copies files from host to container.</li>
+                            <li onclick="highlightLine('RUN')"><strong>RUN</strong>: Executes commands (installing deps).</li>
+                            <li onclick="highlightLine('EXPOSE')"><strong>EXPOSE</strong>: Documents which ports are used.</li>
+                            <li onclick="highlightLine('CMD')"><strong>CMD</strong>: The command to run when container starts.</li>
+                        </ul>
+                    </div>
+                    <div class="code-preview">
+                        <div class="file-name">Dockerfile</div>
+                        <pre><code id="dockerfile-code">
+<span class="keyword">FROM</span> node:18-alpine
+
+<span class="keyword">WORKDIR</span> /app
+
+<span class="keyword">COPY</span> package*.json ./
+
+<span class="keyword">RUN</span> npm install
+
+<span class="keyword">COPY</span> . .
+
+<span class="keyword">EXPOSE</span> 3000
+
+<span class="keyword">CMD</span> ["npm", "start"]
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Containerize App Section (Visual Builder) -->
+            <section id="containerize" class="section">
+                <h2>Visual Build Pipeline</h2>
+                <p>Watch how Docker builds an image layer by layer. Click "Next Step" to proceed.</p>
+                
+                <div class="visual-builder-container">
+                    <div class="build-controls">
+                        <div class="step-indicator">Step: <span id="build-step-num">0</span>/5</div>
+                        <button id="next-build-btn" class="cta-btn small">Start Build</button>
+                        <p id="build-description">Ready to start building the image...</p>
+                    </div>
+
+                    <div class="build-stage">
+                        <!-- Left: Source Files -->
+                        <div class="source-area">
+                            <h4>Source Code</h4>
+                            <div class="file-icon" id="file-pkg">package.json</div>
+                            <div class="file-icon" id="file-src">src/</div>
+                            <div class="file-icon" id="file-docker">Dockerfile</div>
+                        </div>
+
+                        <!-- Middle: The Daemon/Context -->
+                        <div class="daemon-area">
+                            <h4>Docker Daemon</h4>
+                            <div class="build-context-box" id="context-box">
+                                <span class="label">Build Context</span>
+                            </div>
+                        </div>
+
+                        <!-- Right: The Image Layers -->
+                        <div class="image-area">
+                            <h4>Target Image</h4>
+                            <div class="image-stack" id="image-stack">
+                                <!-- Layers will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Simulator Section -->
+            <section id="simulator" class="section">
+                <h2>Interactive Terminal Simulator</h2>
+                <div class="simulator-layout">
+                    <div class="guide-panel">
+                        <h3>Mission Control</h3>
+                        <div id="guide-content">
+                            <p>Welcome to the Docker Simulator. Let's start by running your first container.</p>
+                            <div class="step active" data-step="1">
+                                <h4>Step 1: Hello World</h4>
+                                <p>Pull and run a simple image to verify installation.</p>
+                                <code class="command-hint">docker run hello-world</code>
+                            </div>
+                            <div class="step" data-step="2">
+                                <h4>Step 2: List Containers</h4>
+                                <p>See what containers have run (including stopped ones).</p>
+                                <code class="command-hint">docker ps -a</code>
+                            </div>
+                            <div class="step" data-step="3">
+                                <h4>Step 3: Run a Web Server</h4>
+                                <p>Run an Nginx server in detached mode.</p>
+                                <code class="command-hint">docker run -d -p 8080:80 nginx</code>
+                            </div>
+                            <div class="step" data-step="4">
+                                <h4>Step 4: Check Running Containers</h4>
+                                <p>See the currently running Nginx container.</p>
+                                <code class="command-hint">docker ps</code>
+                            </div>
+                        </div>
+                        <div id="feedback-area"></div>
+                    </div>
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="title">user@dockersim: ~</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-output">
+                            <div class="line">Welcome to Docker Simulator v1.0.0</div>
+                            <div class="line">Type a command to begin...</div>
+                        </div>
+                        <div class="input-line">
+                            <span class="prompt">$</span>
+                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentation Section -->
+            <section id="documentation" class="section">
+                <h2>Docker Documentation</h2>
+                <div class="doc-container">
+                    <div class="doc-sidebar">
+                        <a href="#doc-intro">1. What is Docker?</a>
+                        <a href="#doc-commands">2. Basic Commands</a>
+                        <a href="#doc-debugging">3. Debugging</a>
+                        <a href="#doc-workflow">4. Workflow</a>
+                        <a href="#doc-compose">5. Docker Compose</a>
+                        <a href="#doc-volumes">6. Volumes</a>
+                    </div>
+                    <div class="doc-content">
+                        <div id="doc-intro" class="doc-block">
+                            <h3>1. What is Docker?</h3>
+                            <p>Docker is a platform that uses OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.</p>
+                            <div class="key-point">
+                                <strong>Key Benefit:</strong> "It works on my machine" is no longer an issue. Docker ensures consistency across Development, Testing, and Production environments.
+                            </div>
+                        </div>
+
+                        <div id="doc-commands" class="doc-block">
+                            <h3>2. Basic Commands</h3>
+                            <p>The essential CLI commands you need to know.</p>
+                            
+                            <div class="command-ref">
+                                <div class="cmd-item">
+                                    <code>docker version</code>
+                                    <span>Check installed version</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker pull [image]</code>
+                                    <span>Download an image from Docker Hub</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker images</code>
+                                    <span>List all downloaded images</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker run [image]</code>
+                                    <span>Start a container from an image</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker run -d [image]</code>
+                                    <span>Run in detached mode (background)</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker run -p [host_port]:[container_port] [image]</code>
+                                    <span>Map ports (e.g., -p 3000:80)</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker ps</code>
+                                    <span>List currently running containers</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker ps -a</code>
+                                    <span>List ALL containers (running & stopped)</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker stop [container_id]</code>
+                                    <span>Stop a running container</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker start [container_id]</code>
+                                    <span>Start a stopped container</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="doc-debugging" class="doc-block">
+                            <h3>3. Debugging Containers</h3>
+                            <p>When things go wrong, use these commands to inspect inside.</p>
+                            
+                            <div class="code-block-wrapper">
+                                <div class="file-label">View Logs</div>
+                                <pre><code>docker logs [container_id]
+docker logs -f [container_id]  # Follow output</code></pre>
+                            </div>
+
+                            <div class="code-block-wrapper">
+                                <div class="file-label">Enter Container Terminal</div>
+                                <pre><code>docker exec -it [container_id] /bin/bash
+# OR
+docker exec -it [container_id] /bin/sh</code></pre>
+                            </div>
+                        </div>
+
+                        <div id="doc-workflow" class="doc-block">
+                            <h3>4. Docker Workflow</h3>
+                            <p>The lifecycle of a Docker application.</p>
+                            <div class="workflow-diagram">
+                                <div class="flow-step">Dockerfile <br><span>(Source Code)</span></div>
+                                <div class="arrow">→</div>
+                                <div class="flow-step">Image <br><span>(Portable Artifact)</span></div>
+                                <div class="arrow">→</div>
+                                <div class="flow-step">Container <br><span>(Running Process)</span></div>
+                            </div>
+                        </div>
+
+                        <div id="doc-compose" class="doc-block">
+                            <h3>5. Docker Compose</h3>
+                            <p>A tool for defining and running multi-container Docker applications. Uses a YAML file to configure application services.</p>
+                            
+                            <div class="code-block-wrapper">
+                                <div class="file-label">docker-compose.yaml</div>
+                                <pre><code>version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"</code></pre>
+                            </div>
+                            
+                            <div class="command-ref">
+                                <div class="cmd-item">
+                                    <code>docker-compose up</code>
+                                    <span>Start all services</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker-compose up -d</code>
+                                    <span>Start in background</span>
+                                </div>
+                                <div class="cmd-item">
+                                    <code>docker-compose down</code>
+                                    <span>Stop and remove containers/networks</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="doc-volumes" class="doc-block">
+                            <h3>6. Volumes (Data Persistence)</h3>
+                            <p>By default, when a container is removed, its data is lost. Volumes persist data outside the container.</p>
+                            
+                            <div class="code-block-wrapper">
+                                <div class="file-label">Host Volume Mapping</div>
+                                <pre><code>docker run -v /home/user/data:/var/lib/mysql mysql</code></pre>
+                            </div>
+                            <p>This maps <code>/home/user/data</code> on your computer to <code>/var/lib/mysql</code> inside the container.</p>
+                        </div>
+
+                        <!-- New Full Stack Tutorial Section -->
+                        <div id="doc-fullstack" class="doc-block">
+                            <h3>7. Full Stack Project Tutorial</h3>
+                            <p>Follow this guide to build a complete application with Frontend, Backend, and Database.</p>
+
+                            <div class="tutorial-step">
+                                <h4>Step 1: Create Backend (Node.js)</h4>
+                                <p>Create a file named <code>server.js</code> for your API.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">backend/server.js</div>
+                                    <pre><code>const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+
+// Connect to MongoDB Container
+mongoose.connect('mongodb://mongo:27017/mydb', {
+  useNewUrlParser: true
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello from Backend!');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tutorial-step">
+                                <h4>Step 2: Create Frontend (HTML)</h4>
+                                <p>Create a simple <code>index.html</code> to consume the API.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">frontend/index.html</div>
+                                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;My Full Stack App&lt;/h1&gt;
+  &lt;div id="data"&gt;Loading...&lt;/div&gt;
+  &lt;script&gt;
+    fetch('http://localhost:3000')
+      .then(res => res.text())
+      .then(data => document.getElementById('data').innerText = data);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tutorial-step">
+                                <h4>Step 3: Dockerize (Dockerfiles)</h4>
+                                <p>Create a <code>Dockerfile</code> in the backend folder.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">backend/Dockerfile</div>
+                                    <pre><code>FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "server.js"]</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tutorial-step">
+                                <h4>Step 4: Orchestrate (Docker Compose)</h4>
+                                <p>Create <code>docker-compose.yaml</code> to link everything.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">docker-compose.yaml</div>
+                                    <pre><code>version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+  
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+      
+  frontend:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    ports:
+      - "80:80"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AWS Deployment Section -->
+            <section id="aws" class="section">
+                <h2>AWS Cloud Deployment</h2>
+                
+                <!-- 1. The Two Paths -->
+                <div class="aws-intro">
+                    <h3>Two Ways to Interact</h3>
+                    <p>Understanding the difference between managing the <strong>Server</strong> (SSH) and managing the <strong>Account</strong> (AWS CLI).</p>
+                </div>
+
+                <div class="comparison-split">
+                    <!-- Left: SSH -->
+                    <div class="split-card ssh-card">
+                        <div class="card-header">
+                            <div class="icon">💻</div>
+                            <h4>Method A: SSH</h4>
+                            <span class="badge">Server Management</span>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Goal:</strong> Log inside a specific EC2 instance to run commands.</p>
+                            <p><strong>Analogy:</strong> Remote Desktop / TeamViewer.</p>
+                            <div class="code-snippet">
+                                <span class="comment"># Connect to server</span>
+                                <code>ssh -i key.pem user@54.x.x.x</code>
+                            </div>
+                            <ul class="usage-list">
+                                <li>✅ Install Docker</li>
+                                <li>✅ Run Containers</li>
+                                <li>✅ View Server Logs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right: AWS CLI -->
+                    <div class="split-card cli-card">
+                        <div class="card-header">
+                            <div class="icon">☁️</div>
+                            <h4>Method B: AWS CLI</h4>
+                            <span class="badge">Account Management</span>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Goal:</strong> Control AWS services (S3, ECR, RDS) from your terminal.</p>
+                            <p><strong>Analogy:</strong> Admin Control Panel.</p>
+                            <div class="code-snippet">
+                                <span class="comment"># Configure credentials</span>
+                                <code>aws configure</code>
+                            </div>
+                            <ul class="usage-list">
+                                <li>✅ Create/Delete Servers</li>
+                                <li>✅ Upload Images to ECR</li>
+                                <li>✅ Manage Databases</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. The Sample Project -->
+                <div class="sample-project-section">
+                    <h3>🚀 Challenge: Deploy a Full Stack App</h3>
+                    <p>We have prepared a sample 3-tier application. Your mission is to deploy this stack to AWS.</p>
+                    
+                    <div class="architecture-diagram-visual">
+                        <div class="tier frontend">
+                            <span class="tier-icon">⚛️</span>
+                            <span>Frontend (React)</span>
+                            <small>Port 80</small>
+                        </div>
+                        <div class="connector">⬇️ HTTP</div>
+                        <div class="tier backend">
+                            <span class="tier-icon">🟢</span>
+                            <span>Backend (Node API)</span>
+                            <small>Port 3000</small>
+                        </div>
+                        <div class="connector">⬇️ TCP</div>
+                        <div class="tier db">
+                            <span class="tier-icon">🍃</span>
+                            <span>Database (Mongo)</span>
+                            <small>Port 27017</small>
+                        </div>
+                    </div>
+
+                    <div class="project-files-preview">
+                        <h4>Project Structure</h4>
+                        <pre><code>my-fullstack-app/
+├── docker-compose.yaml  <span class="comment"># Orchestrates all 3 services</span>
+├── frontend/
+│   └── Dockerfile
+└── backend/
+    └── Dockerfile</code></pre>
+                    </div>
+                </div>
+
+                <!-- 3. Simulation Prompt -->
+                <div class="aws-simulation-prompt">
+                    <h3>Ready to Deploy?</h3>
+                    <p>We have updated the simulator. You will now:</p>
+                    <ol style="text-align: left; display: inline-block; margin-bottom: 1.5rem;">
+                        <li>Configure AWS CLI credentials.</li>
+                        <li>SSH into the production server.</li>
+                        <li>Deploy the full stack app using Docker Compose.</li>
+                    </ol>
+                    <br>
+                    <button class="cta-btn" onclick="startAwsMission()">Start Full Stack Mission</button>
+                </div>
+
+                <!-- 4. ECR Distribution Section -->
+                <div class="aws-intro" style="margin-top: 4rem; border-top: 2px dashed #ccc; padding-top: 2rem;">
+                    <h3>Advanced: Distribute with ECR</h3>
+                    <p>Learn how to share your Docker images across machines using <strong>AWS Elastic Container Registry (ECR)</strong>.</p>
+                </div>
+
+                <div class="aws-steps-grid">
+                    <div class="aws-step-card">
+                        <div class="step-num">1</div>
+                        <h4>Login</h4>
+                        <p>Authenticate your Docker client with your AWS registry.</p>
+                        <code>aws ecr get-login-password | docker login...</code>
+                    </div>
+                    <div class="aws-step-card">
+                        <div class="step-num">2</div>
+                        <h4>Tag</h4>
+                        <p>Rename your local image to match the ECR repository URL.</p>
+                        <code>docker tag my-app 123...dkr.ecr.../my-app</code>
+                    </div>
+                    <div class="aws-step-card">
+                        <div class="step-num">3</div>
+                        <h4>Push</h4>
+                        <p>Upload your image to the cloud registry.</p>
+                        <code>docker push 123...dkr.ecr.../my-app</code>
+                    </div>
+                    <div class="aws-step-card">
+                        <div class="step-num">4</div>
+                        <h4>Pull & Run</h4>
+                        <p>Download and run the image on <em>any</em> other machine.</p>
+                        <code>docker run 123...dkr.ecr.../my-app</code>
+                    </div>
+                </div>
+
+                <div class="aws-simulation-prompt" style="background: #1e293b;">
+                    <h3>New Mission: Global Distribution</h3>
+                    <p>Practice pushing your image to the cloud and running it on a completely different server.</p>
+                    <button class="cta-btn" onclick="startEcrMission()">Start ECR Mission</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="simulator.js"></script>
+</body>
+</html>
