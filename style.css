@@ -1113,3 +1113,267 @@ pre {
     margin-bottom: 1rem;
     color: #000;
 }
+
+/* ECR Masterclass Styles */
+.masterclass-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tutorial-block {
+    margin-bottom: 4rem;
+    background: #fff;
+    padding: 2rem;
+    border: 2px solid #000;
+    box-shadow: var(--hard-shadow);
+}
+
+.checklist {
+    list-style: none;
+}
+
+.checklist li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-card {
+    background: #f4f4f4;
+    padding: 1.5rem;
+    border-left: 4px solid #000;
+    margin-bottom: 1.5rem;
+}
+
+.step-card h4 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.step-card pre {
+    background: #000;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+}
+
+/* Network Visualizer */
+.network-visualizer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background: #fff;
+    border: 2px solid #000;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.device {
+    text-align: center;
+    z-index: 2;
+    background: #fff;
+    padding: 1rem;
+    border: 2px solid #000;
+    width: 120px;
+}
+
+.device .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cloud-path {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 1rem;
+}
+
+.cloud-path .line {
+    height: 4px;
+    background: #000;
+    flex: 1;
+}
+
+.cloud-icon {
+    font-size: 4rem;
+    margin: 0 1rem;
+    z-index: 2;
+    background: #fff;
+}
+
+.packet {
+    position: absolute;
+    font-size: 2rem;
+    top: -10px; /* Adjust based on alignment */
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 3;
+}
+
+/* Animation Classes */
+.animate-push {
+    animation: pushToCloud 2s forwards;
+}
+
+.animate-pull {
+    animation: pullFromCloud 2s forwards;
+}
+
+@keyframes pushToCloud {
+    0% { left: 0; opacity: 1; }
+    50% { left: 50%; opacity: 1; transform: scale(1.2); }
+    100% { left: 50%; opacity: 0; transform: scale(0); }
+}
+
+@keyframes pullFromCloud {
+    0% { left: 50%; opacity: 0; transform: scale(0); }
+    10% { left: 50%; opacity: 1; transform: scale(1.2); }
+    100% { left: 100%; opacity: 1; transform: scale(1); }
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-primary: #ffffff;
+    --border-color: #ffffff;
+    --hard-shadow: 6px 6px 0px #ffffff;
+    --hover-shadow: 8px 8px 0px #ffffff;
+    --active-shadow: 2px 2px 0px #ffffff;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .docker-logo { color: #fff; }
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode p { color: #fff; }
+body.dark-mode .nav-links li.active { background-color: #fff; color: #000; border-color: #fff; }
+body.dark-mode .nav-links li:hover { background: #333; border-color: #fff; }
+body.dark-mode .hero, body.dark-mode .feature-card, body.dark-mode .concept-card, body.dark-mode .guide-panel, body.dark-mode .terminal-window, body.dark-mode .code-preview, body.dark-mode .doc-sidebar, body.dark-mode .doc-block, body.dark-mode .split-card, body.dark-mode .tier, body.dark-mode .aws-step-card, body.dark-mode .tutorial-block, body.dark-mode .step-card, body.dark-mode .device, body.dark-mode .network-visualizer, body.dark-mode .cloud-icon {
+    background: #1e1e1e;
+    border-color: #fff;
+    color: #fff;
+}
+body.dark-mode .step-card h4 { color: #fff; }
+body.dark-mode .step-card { background: #2d2d2d; border-left-color: #fff; }
+body.dark-mode .cta-btn { background: #1e1e1e; color: #fff; border-color: #fff; }
+body.dark-mode .cta-btn:hover { background: #fff; color: #000; }
+body.dark-mode .analogy { background: #fff; color: #000; border-color: #fff; }
+body.dark-mode .terminal-header { background: #333; border-bottom-color: #fff; }
+body.dark-mode .terminal-header .title { color: #fff; }
+body.dark-mode .terminal-body { color: #fff; }
+body.dark-mode .prompt { color: #00ff00; }
+body.dark-mode #terminal-input { color: #fff; }
+body.dark-mode .dot { border-color: #fff; }
+body.dark-mode .red { background: #ff5f56; border: none; }
+body.dark-mode .yellow { background: #ffbd2e; border: none; }
+body.dark-mode .green { background: #27c93f; border: none; }
+
+/* Theme Toggle Slider Button */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 60px;
+    height: 30px;
+    background: var(--bg-color);
+    border: 3px solid var(--text-primary);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: var(--hard-shadow);
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+#theme-toggle::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    display: block;
+    transition: transform 0.3s;
+}
+
+
+
+/* Move the knob inside */
+/* Error Debugging & Prevention Blocks */
+.error-prevention-block {
+    background: #fff5f5;
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    box-shadow: 4px 4px 0 #ef4444;
+}
+
+.error-prevention-block h4 {
+    color: #b91c1c;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+}
+
+.error-prevention-block h4::before {
+    content: '⚠️';
+    font-size: 1.5rem;
+}
+
+.error-prevention-block .error-title {
+    font-family: var(--font-mono);
+    font-weight: bold;
+    background: #fee2e2;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: #991b1b;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.error-prevention-block ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #7f1d1d;
+}
+
+/* Dark Mode Support for Error Blocks */
+body.dark-mode .error-prevention-block {
+    background: #2a1212;
+    border-color: #ef4444;
+    color: #fff;
+}
+body.dark-mode .error-prevention-block h4 {
+    color: #fca5a5;
+}
+body.dark-mode .error-prevention-block .error-title {
+    background: #450a0a;
+    color: #fca5a5;
+}
+body.dark-mode .error-prevention-block ul {
+    color: #fecaca;
+}
+
+/* Guide Block for Merged Sections */
+.guide-block {
+    margin-bottom: 8rem;
+    scroll-margin-top: 2rem;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 4rem;
+}
+
+.guide-block:last-child {
+    border-bottom: none;
+}
