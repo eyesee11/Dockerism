@@ -39,6 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    overflow-y: auto;
 }
 
 .logo {
@@ -103,6 +104,13 @@ body {
     position: relative;
     background-image: radial-gradient(#000 1px, transparent 1px);
     background-size: 20px 20px; /* Dot grid pattern */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.content-area::-webkit-scrollbar {
+    display: none;
 }
 
 .section {
@@ -544,15 +552,15 @@ pre {
     box-shadow: var(--hard-shadow);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
+/* Scrollbar - Only for sidebar */
+.sidebar::-webkit-scrollbar {
     width: 12px;
 }
-::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {
     background: #fff;
     border-left: 2px solid #000;
 }
-::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
     background: #000;
     border: 2px solid #fff;
 }
