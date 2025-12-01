@@ -409,20 +409,25 @@ services:
                                 <p>Create a file named <code>server.js</code> for your API.</p>
                                 <div class="code-block-wrapper">
                                     <div class="file-label">backend/server.js</div>
-                                    <pre><code>const express = require('express');
+                                    <pre><code>
+                                        const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
+const cors = require('cors');
 
-// Connect to MongoDB Container
-mongoose.connect('mongodb://mongo:27017/mydb', {
-  useNewUrlParser: true
-});
+const app = express();
+app.use(cors());
+
+mongoose.connect('mongodb://mongo:27017/testdb');
 
 app.get('/', (req, res) => {
-  res.send('Hello from Backend!');
+  res.json({ 
+    message: 'Backend Connected!', 
+    db: mongoose.connection.readyState === 1 ? 'MongoDB Connected' : 'MongoDB Disconnected' 
+  });
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));</code></pre>
+app.listen(3000, () => console.log('Backend running on port 3000'));
+                                    </code></pre>
                                 </div>
                             </div>
 
@@ -432,17 +437,56 @@ app.listen(3000, () => console.log('Server running on port 3000'));</code></pre>
                                 <div class="code-block-wrapper">
                                     <div class="file-label">frontend/index.html</div>
                                     <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-  &lt;h1&gt;My Full Stack App&lt;/h1&gt;
-  &lt;div id="data"&gt;Loading...&lt;/div&gt;
-  &lt;script&gt;
-    fetch('http://localhost:3000')
-      .then(res => res.text())
-      .then(data => document.getElementById('data').innerText = data);
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                                &lt;html lang="en"&gt;
+                                &lt;head&gt;
+                                  &lt;meta charset="UTF-8"&gt;
+                                  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                                  &lt;title&gt;Docker Compose Demo&lt;/title&gt;
+                                  &lt;style&gt;
+                                    body {
+                                      font-family: Arial, sans-serif;
+                                      display: flex;
+                                      justify-content: center;
+                                      align-items: center;
+                                      min-height: 100vh;
+                                      margin: 0;
+                                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                    }
+                                    .card {
+                                      background: white;
+                                      padding: 40px;
+                                      border-radius: 10px;
+                                      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                                      text-align: center;
+                                    }
+                                    h1 { color: #667eea; margin-bottom: 20px; }
+                                    #status { font-size: 18px; margin-top: 20px; }
+                                    .success { color: #27ae60; font-weight: bold; }
+                                    .error { color: #e74c3c; font-weight: bold; }
+                                  &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                  &lt;div class="card"&gt;
+                                    &lt;h1&gt;🐳 Docker Compose Demo&lt;/h1&gt;
+                                    &lt;p&gt;Frontend ✓ Backend ✓ Database ✓&lt;/p&gt;
+                                    &lt;div id="status"&gt;Connecting...&lt;/div&gt;
+                                  &lt;/div&gt;
+                                  
+                                  &lt;script&gt;
+                                    fetch('http://localhost:3000')
+                                      .then(res =&gt; res.json())
+                                      .then(data =&gt; {
+                                        document.getElementById('status').innerHTML = 
+                                          `&lt;div class="success"&gt;✓ ${data.message}&lt;br&gt;✓ ${data.db}&lt;/div&gt;`;
+                                      })
+                                      .catch(err =&gt; {
+                                        document.getElementById('status').innerHTML = 
+                                          `&lt;div class="error"&gt;✗ Connection Failed: ${err.message}&lt;/div&gt;`;
+                                      });
+                                  &lt;/script&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;</code></pre>
+                                </div>
                                 </div>
                             </div>
 
@@ -459,11 +503,44 @@ COPY . .
 EXPOSE 3000
 CMD ["node", "server.js"]</code></pre>
                                 </div>
+
+                                <p>Create a <code>Dockerfile</code> in the frontend folder.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">frontend/Dockerfile</div>
+                                    <pre><code>FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+</code></pre>
+                                </div>
+
                             </div>
 
                             <div class="tutorial-step">
-                                <h4>Step 4: Orchestrate (Docker Compose)</h4>
-                                <p>Create <code>docker-compose.yaml</code> to link everything.</p>
+                                <h4>Step 4: Package.json (cuz we need it)</h4>
+                                <p>Create a <code>package.json</code> in the backend folder.</p>
+                                <div class="code-block-wrapper">
+                                    <div class="file-label">backend/package.json</div>
+                                    <pre><code>{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.0",
+    "cors": "^2.8.5"
+  }
+}
+]</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tutorial-step">
+                                <h4>Step 5: Orchestrate (Docker Compose)</h4>
+                                <p>Create <code>docker-compose.yaml</code> in the root to link everything.</p>
                                 <div class="code-block-wrapper">
                                     <div class="file-label">docker-compose.yaml</div>
                                     <pre><code>version: '3'
@@ -481,9 +558,7 @@ services:
       - "27017:27017"
       
   frontend:
-    image: nginx:alpine
-    volumes:
-      - ./frontend:/usr/share/nginx/html
+    build: ./frontend
     ports:
       - "80:80"</code></pre>
                                 </div>
