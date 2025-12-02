@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECR Masterclass - Docker Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        overflow: auto;
+      }
+      .standalone-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+      .back-btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border: 3px solid #000;
+        font-weight: 700;
+        text-transform: uppercase;
+        box-shadow: 6px 6px 0px #000;
+        transition: all 0.1s ease;
+        margin-bottom: 2rem;
+      }
+      .back-btn:hover {
+        box-shadow: 8px 8px 0px #000;
+        transform: translate(-2px, -2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="standalone-page">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+
+      <h2>ECR Masterclass: From Local to Cloud</h2>
+      <div class="masterclass-container">
+        <div class="tutorial-block">
+          <h3>Goal</h3>
+          <p>
+            You will learn how to: <strong>Build</strong> a Docker image,
+            <strong>Push</strong> it to AWS ECR (Private Registry),
+            <strong>Pull</strong> it from any device, and
+            <strong>Run</strong> it.
+          </p>
+        </div>
+
+        <div class="tutorial-block">
+          <h3>Step 0: Prerequisites</h3>
+          <ul class="checklist">
+            <li>
+              ✅
+              <a
+                href="https://www.docker.com/products/docker-desktop/"
+                target="_blank"
+                >Docker Desktop</a
+              >
+              installed & running
+            </li>
+            <li>
+              ✅
+              <a
+                href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"
+                target="_blank"
+                >AWS CLI</a
+              >
+              installed
+            </li>
+            <li>✅ PowerShell terminal working (<code>aws --version</code>)</li>
+          </ul>
+        </div>
+
+        <div class="tutorial-block">
+          <h3>Part 1: Simple Node.js Project</h3>
+          <p>
+            <strong>What:</strong> We'll create a minimal Node.js app to test
+            the pipeline.
+          </p>
+
+          <div class="step-card">
+            <h4>Step 1: Create Project Folder</h4>
+            <pre><code>mkdir myapp
+cd myapp</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 2: Create Files</h4>
+            <p><strong>index.js</strong></p>
+            <pre><code>console.log("Hello from Docker + AWS ECR!");</code></pre>
+            <p><strong>Dockerfile</strong></p>
+            <pre><code>FROM node:18-alpine
+WORKDIR /app
+COPY . .
+CMD ["node", "index.js"]</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3: Build Image</h4>
+            <p>
+              <strong>Why:</strong> Docker needs to package your code and
+              runtime into a single artifact.
+            </p>
+            <pre><code>docker build -t myapp:latest .</code></pre>
+
+            <div class="error-prevention-block">
+              <h4>Common Error: Daemon Not Running</h4>
+              <span class="error-title"
+                >error during connect: This error may also indicate that the
+                docker daemon is not running.</span
+              >
+              <ul>
+                <li>
+                  <strong>Cause:</strong> Docker Desktop is closed or crashed.
+                </li>
+                <li>
+                  <strong>Fix:</strong> Open Docker Desktop application and wait
+                  for the whale icon to stop animating.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 4: Run Locally</h4>
+            <p>
+              <strong>Why:</strong> Always test locally before pushing to the
+              cloud.
+            </p>
+            <pre><code>docker run --name myapp_container myapp:latest</code></pre>
+            <p><em>Output: "Hello from Docker + AWS ECR!"</em></p>
+          </div>
+        </div>
+
+        <div class="tutorial-block">
+          <h3>Part 2: Static Website (HTML/CSS/JS)</h3>
+          <p>
+            <strong>What:</strong> A real-world example using Nginx to serve a
+            website.
+          </p>
+
+          <div class="step-card">
+            <h4>Step 1: Create Web Files</h4>
+            <p>
+              Create <code>index.html</code>, <code>style.css</code>, and
+              <code>script.js</code>.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 2: Update Dockerfile</h4>
+            <p>
+              <strong>Why:</strong> We switch from Node to Nginx because Nginx
+              is optimized for static files.
+            </p>
+            <pre><code>FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY . /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3: Build & Run Website</h4>
+            <pre><code>docker build -t mywebsite:latest .
+docker run -d -p 8080:80 mywebsite:latest</code></pre>
+            <p>Visit <code>http://localhost:8080</code> to see it.</p>
+          </div>
+        </div>
+
+        <div class="tutorial-block">
+          <h3>Part 3: Push to AWS ECR</h3>
+
+          <div
+            class="concept-card"
+            style="margin-bottom: 2rem; border: 2px solid #000; padding: 1.5rem"
+          >
+            <h4>What is ECR?</h4>
+            <p>
+              <strong>ECR (Elastic Container Registry)</strong> is a cloud
+              storage place where you upload your Docker images. Think of it as
+              <strong>GitHub for Docker images</strong>.
+            </p>
+
+            <h4>Why use ECR instead of Docker Hub?</h4>
+            <ul class="usage-list">
+              <li>
+                <strong>Integration:</strong> Seamlessly works with ECS, EKS,
+                and Lambda.
+              </li>
+              <li>
+                <strong>Security:</strong> Images are private by default and
+                protected by IAM roles.
+              </li>
+              <li>
+                <strong>Speed:</strong> Pulling images from ECR to EC2 is faster
+                because it stays within the AWS network.
+              </li>
+            </ul>
+
+            <h4>The Analogy</h4>
+            <p>
+              🧑‍💻 <strong>Developers</strong> create the image.<br />
+              📦 <strong>Upload</strong> it to ECR (The Warehouse).<br />
+              🖥️ <strong>Any Machine</strong> (EC2, Laptop) pulls it from the
+              warehouse to run.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3.1: Create Repository</h4>
+            <p>
+              <strong>Why:</strong> You need a specific "folder" in the cloud to
+              store this project's images.
+            </p>
+            <pre><code>aws ecr create-repository --repository-name mywebsite --region us-east-1</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3.2: Login</h4>
+            <p>
+              <strong>Why:</strong> ECR is private. Docker needs permission to
+              talk to it.
+            </p>
+            <pre><code>aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin [YOUR_ECR_URL]</code></pre>
+
+            <div class="error-prevention-block">
+              <h4>Common Error: Login Failed</h4>
+              <span class="error-title"
+                >An error occurred (UnrecognizedClientException) when calling
+                the GetAuthorizationToken operation</span
+              >
+              <ul>
+                <li>
+                  <strong>Cause:</strong> Your AWS CLI is not configured with
+                  valid credentials.
+                </li>
+                <li>
+                  <strong>Fix:</strong> Run <code>aws configure</code> and enter
+                  your Access Key and Secret Key again.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3.3: Tag Image</h4>
+            <p>
+              <strong>Why:</strong> Docker needs to know <em>where</em> to push
+              the image. The tag acts as the address label.
+            </p>
+            <pre><code>docker tag mywebsite:latest [YOUR_ECR_URL]/mywebsite:latest</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 3.4: Push Image</h4>
+            <p><strong>What:</strong> Uploads the layers to AWS.</p>
+            <pre><code>docker push [YOUR_ECR_URL]/mywebsite:latest</code></pre>
+
+            <div class="error-prevention-block">
+              <h4>Common Error: Access Denied</h4>
+              <span class="error-title"
+                >denied: User: arn:aws:iam::... is not authorized to perform:
+                ecr:InitiateLayerUpload</span
+              >
+              <ul>
+                <li>
+                  <strong>Cause:</strong> Your IAM User does not have the
+                  `AmazonEC2ContainerRegistryFullAccess` policy.
+                </li>
+                <li>
+                  <strong>Fix:</strong> Go to IAM Console -> Users -> Add
+                  Permissions -> Attach existing policies -> Search "ECR" ->
+                  Select FullAccess.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tutorial-block">
+          <h3>Part 4: Pull on Another Device</h3>
+          <p>
+            <strong>Scenario:</strong> A student's laptop or a production server
+            needs to run your app.
+          </p>
+
+          <div class="network-visualizer">
+            <div class="device" id="device-laptop-a">
+              <div class="icon">💻</div>
+              <span>Laptop A (You)</span>
+            </div>
+            <div class="cloud-path">
+              <div class="packet" id="demo-packet">📦</div>
+              <div class="line"></div>
+              <div class="cloud-icon">☁️ AWS ECR</div>
+              <div class="line"></div>
+            </div>
+            <div class="device" id="device-laptop-b">
+              <div class="icon">🖥️</div>
+              <span>Laptop B (Student)</span>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 4.1: Configure Student Laptop</h4>
+            <p>
+              <strong>What:</strong> The other machine needs AWS CLI installed
+              and credentials configured.
+            </p>
+            <pre><code>aws configure</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 4.2: Login (Again)</h4>
+            <p>
+              <strong>Why:</strong> The student's laptop must also authenticate
+              to access the private repo.
+            </p>
+            <pre><code>aws ecr get-login-password ... | docker login ...</code></pre>
+          </div>
+
+          <div class="step-card">
+            <h4>Step 4.3: Pull & Run</h4>
+            <p>
+              <strong>Result:</strong> The website runs instantly without
+              needing the source code!
+            </p>
+            <pre><code>docker pull [YOUR_ECR_URL]/mywebsite:latest
+docker run -d -p 8082:80 [YOUR_ECR_URL]/mywebsite:latest</code></pre>
+
+            <div class="error-prevention-block">
+              <h4>Common Error: Image Not Found</h4>
+              <span class="error-title"
+                >Error response from daemon: manifest for ... not found</span
+              >
+              <ul>
+                <li>
+                  <strong>Cause:</strong> You might have forgotten to push the
+                  image from Laptop A, or the tag is different.
+                </li>
+                <li>
+                  <strong>Fix:</strong> Check the ECR Console to ensure the
+                  image exists and the tag (e.g., `latest`) matches exactly.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="aws-simulation-prompt">
+          <h3>Interactive Simulation</h3>
+          <p>Practice this entire workflow in our simulator now.</p>
+          <button
+            class="cta-btn"
+            onclick="window.location.href='index.html?mission=masterclass'"
+          >
+            Start Masterclass Mission
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
