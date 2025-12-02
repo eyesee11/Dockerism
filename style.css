@@ -1385,3 +1385,15 @@ body.dark-mode .error-prevention-block ul {
 .guide-block:last-child {
     border-bottom: none;
 }
+
+/* Fix for ECR Masterclass and AWS visibility */
+#ecr-masterclass, #aws {
+    position: relative;
+    z-index: 100;
+}
+
+.section.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
