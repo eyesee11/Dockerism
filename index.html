@@ -1,151 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Docker Simulator & Masterclass</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="theme-toggle" title="Toggle Theme"></div>
     <div class="app-container">
-        <nav class="sidebar">
-            <div class="logo">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="docker-logo">
-                    <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954-5.43h2.119a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V3.574a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.186.184.186m-2.964 0h2.119a.186.186 0 00.185-.186V3.574a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.888c0 .102.083.186.186.186m-2.93 0h2.12a.185.185 0 00.184-.186V3.574a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.888c0 .102.082.186.184.186M5.136 11.078h2.119a.186.186 0 00.185-.185V9.006a.186.186 0 00-.185-.186H5.136a.186.186 0 00-.186.186v1.888c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H2.206a.185.185 0 00-.184.186v1.888c0 .102.082.185.184.185m2.93 2.941h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H5.136a.185.185 0 00-.186.185v1.894c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.894c0 .102.082.185.184.185m8.066-2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185m2.954-5.882h2.119a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m0 2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185M23.635 11.94h-1.668v-.866c0-1.145-.926-2.074-2.066-2.074h-.667V6.29c0-.102-.083-.185-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v3.138a2.53 2.53 0 00-1.393 2.261v5.794c0 1.385 1.118 2.508 2.497 2.508h20.84c1.379 0 2.497-1.123 2.497-2.508v-5.794c0-1.249-.91-2.275-2.108-2.476" fill="currentColor"/>
-                </svg>
-                <span>DockerSim</span>
+      <nav class="sidebar">
+        <div class="logo">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="docker-logo"
+          >
+            <path
+              d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m-2.954-5.43h2.119a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V3.574a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.186.184.186m-2.964 0h2.119a.186.186 0 00.185-.186V3.574a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.888c0 .102.083.186.186.186m-2.93 0h2.12a.185.185 0 00.184-.186V3.574a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.888c0 .102.082.186.184.186M5.136 11.078h2.119a.186.186 0 00.185-.185V9.006a.186.186 0 00-.185-.186H5.136a.186.186 0 00-.186.186v1.888c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H2.206a.185.185 0 00-.184.186v1.888c0 .102.082.185.184.185m2.93 2.941h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H5.136a.185.185 0 00-.186.185v1.894c0 .102.083.185.186.185m-2.93 0h2.12a.185.185 0 00.184-.186V11.94a.185.185 0 00-.184-.185H2.206a.185.185 0 00-.184.185v1.894c0 .102.082.185.184.185m8.066-2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185m2.954-5.882h2.119a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.186.185.186m0 2.941h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.888c0 .102.083.185.185.185m0 2.941h2.119a.186.186 0 00.186-.186V11.94a.186.186 0 00-.186-.185h-2.119a.185.185 0 00-.185.185v1.894c0 .102.083.185.185.185M23.635 11.94h-1.668v-.866c0-1.145-.926-2.074-2.066-2.074h-.667V6.29c0-.102-.083-.185-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.119a.185.185 0 00-.185.185v2.716h-.668v-2.716a.185.185 0 00-.185-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v2.716h-.668v-2.716a.185.185 0 00-.184-.185h-2.12a.185.185 0 00-.184.185v3.138a2.53 2.53 0 00-1.393 2.261v5.794c0 1.385 1.118 2.508 2.497 2.508h20.84c1.379 0 2.497-1.123 2.497-2.508v-5.794c0-1.249-.91-2.275-2.108-2.476"
+              fill="currentColor"
+            />
+          </svg>
+          <span>DockerSim</span>
+        </div>
+        <ul class="nav-links">
+          <li class="active" data-section="intro">Introduction</li>
+          <li data-section="concepts">Core Concepts</li>
+          <li data-section="vm-vs-container">VM vs Container</li>
+          <li data-section="dockerfile">Dockerfile Guide</li>
+          <li data-section="containerize">Containerize App</li>
+          <li data-section="simulator">Interactive Simulator</li>
+          <li data-section="aws">SSH Configure</li>
+          <li data-section="ecr-masterclass">ECR Masterclass</li>
+          <li data-section="documentation">Documentation</li>
+        </ul>
+      </nav>
+
+      <main class="content-area">
+        <!-- Introduction Section -->
+        <!-- Merged Guide Section -->
+        <section id="guide" class="section active">
+          <!-- Introduction Section -->
+          <div id="intro" class="guide-block">
+            <div class="hero">
+              <h1>Master Docker</h1>
+              <p class="subtitle">
+                Interactive Simulator & Comprehensive Guide
+              </p>
+              <p class="description">
+                Learn how to build, ship, and run applications anywhere.
+                Understand the magic behind containers through interactive
+                simulations.
+              </p>
+              <button class="cta-btn" onclick="navigateTo('simulator')">
+                Start Simulating
+              </button>
             </div>
-            <ul class="nav-links">
-                <li class="active" data-section="intro">Introduction</li>
-                <li data-section="concepts">Core Concepts</li>
-                <li data-section="vm-vs-container">VM vs Container</li>
-                <li data-section="dockerfile">Dockerfile Guide</li>
-                <li data-section="containerize">Containerize App</li>
-                <li data-section="simulator">Interactive Simulator</li>
-                <li data-section="aws">SSH Configure</li>
-                <li data-section="ecr-masterclass">ECR Masterclass</li>
-                <li data-section="documentation">Documentation</li>
-            </ul>
-        </nav>
+            <div class="features-grid">
+              <div class="feature-card">
+                <h3>What is Docker?</h3>
+                <p>
+                  Docker is an open platform for developing, shipping, and
+                  running applications. It enables you to separate your
+                  applications from your infrastructure so you can deliver
+                  software quickly.
+                </p>
+              </div>
+              <div class="feature-card">
+                <h3>Why use it?</h3>
+                <p>
+                  Consistency across environments, speed of deployment,
+                  isolation of dependencies, and scalability.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <main class="content-area">
-            <!-- Introduction Section -->
-            <!-- Merged Guide Section -->
-            <section id="guide" class="section active">
-                <!-- Introduction Section -->
-                <div id="intro" class="guide-block">
-                    <div class="hero">
-                        <h1>Master Docker</h1>
-                        <p class="subtitle">Interactive Simulator & Comprehensive Guide</p>
-                        <p class="description">
-                            Learn how to build, ship, and run applications anywhere.
-                            Understand the magic behind containers through interactive simulations.
-                        </p>
-                        <button class="cta-btn" onclick="navigateTo('simulator')">Start Simulating</button>
-                    </div>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <h3>What is Docker?</h3>
-                            <p>Docker is an open platform for developing, shipping, and running applications. It enables you to separate your applications from your infrastructure so you can deliver software quickly.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h3>Why use it?</h3>
-                            <p>Consistency across environments, speed of deployment, isolation of dependencies, and scalability.</p>
-                        </div>
-                    </div>
+          <!-- Core Concepts Section -->
+          <div id="concepts" class="guide-block">
+            <h2>Core Concepts</h2>
+            <div class="concepts-container">
+              <div class="concept-card">
+                <div class="icon">📦</div>
+                <h3>Images</h3>
+                <p>
+                  A read-only template with instructions for creating a Docker
+                  container. Often based on another image, with some additional
+                  customization.
+                </p>
+                <div class="analogy">Analogy: The "Blueprint" or "Recipe"</div>
+              </div>
+              <div class="concept-card">
+                <div class="icon">🚢</div>
+                <h3>Containers</h3>
+                <p>
+                  A runnable instance of an image. You can create, start, stop,
+                  move, or delete a container using the Docker API or CLI.
+                </p>
+                <div class="analogy">
+                  Analogy: The "House" built from the blueprint
                 </div>
+              </div>
+              <div class="concept-card">
+                <div class="icon">🐳</div>
+                <h3>Docker Daemon</h3>
+                <p>
+                  The background service running on the host that manages
+                  building, running, and distributing Docker containers.
+                </p>
+              </div>
+              <div class="concept-card">
+                <div class="icon">📄</div>
+                <h3>Dockerfile</h3>
+                <p>
+                  A text document that contains all the commands a user could
+                  call on the command line to assemble an image.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                <!-- Core Concepts Section -->
-                <div id="concepts" class="guide-block">
-                    <h2>Core Concepts</h2>
-                    <div class="concepts-container">
-                        <div class="concept-card">
-                            <div class="icon">📦</div>
-                            <h3>Images</h3>
-                            <p>A read-only template with instructions for creating a Docker container. Often based on another image, with some additional customization.</p>
-                            <div class="analogy">Analogy: The "Blueprint" or "Recipe"</div>
-                        </div>
-                        <div class="concept-card">
-                            <div class="icon">🚢</div>
-                            <h3>Containers</h3>
-                            <p>A runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI.</p>
-                            <div class="analogy">Analogy: The "House" built from the blueprint</div>
-                        </div>
-                        <div class="concept-card">
-                            <div class="icon">🐳</div>
-                            <h3>Docker Daemon</h3>
-                            <p>The background service running on the host that manages building, running, and distributing Docker containers.</p>
-                        </div>
-                        <div class="concept-card">
-                            <div class="icon">📄</div>
-                            <h3>Dockerfile</h3>
-                            <p>A text document that contains all the commands a user could call on the command line to assemble an image.</p>
-                        </div>
-                    </div>
+          <!-- VM vs Container Section -->
+          <div id="vm-vs-container" class="guide-block">
+            <h2>Containers vs Virtual Machines</h2>
+            <div class="comparison-view">
+              <div class="architecture-diagram">
+                <div class="stack container-stack">
+                  <h4>Containers</h4>
+                  <div class="layer app">App A</div>
+                  <div class="layer bins">Bins/Libs</div>
+                  <div class="layer app">App B</div>
+                  <div class="layer bins">Bins/Libs</div>
+                  <div class="layer engine">Docker Engine</div>
+                  <div class="layer os">Host OS</div>
+                  <div class="layer infrastructure">Infrastructure</div>
                 </div>
-
-                <!-- VM vs Container Section -->
-                <div id="vm-vs-container" class="guide-block">
-                    <h2>Containers vs Virtual Machines</h2>
-                    <div class="comparison-view">
-                        <div class="architecture-diagram">
-                            <div class="stack container-stack">
-                                <h4>Containers</h4>
-                                <div class="layer app">App A</div>
-                                <div class="layer bins">Bins/Libs</div>
-                                <div class="layer app">App B</div>
-                                <div class="layer bins">Bins/Libs</div>
-                                <div class="layer engine">Docker Engine</div>
-                                <div class="layer os">Host OS</div>
-                                <div class="layer infrastructure">Infrastructure</div>
-                            </div>
-                            <div class="stack vm-stack">
-                                <h4>Virtual Machines</h4>
-                                <div class="layer app">App A</div>
-                                <div class="layer bins">Bins/Libs</div>
-                                <div class="layer guest-os">Guest OS</div>
-                                <div class="layer app">App B</div>
-                                <div class="layer bins">Bins/Libs</div>
-                                <div class="layer guest-os">Guest OS</div>
-                                <div class="layer hypervisor">Hypervisor</div>
-                                <div class="layer infrastructure">Infrastructure</div>
-                            </div>
-                        </div>
-                        <div class="comparison-text">
-                            <h3>Key Differences</h3>
-                            <ul>
-                                <li><strong>OS Usage:</strong> Containers share the host OS kernel, making them lightweight. VMs include a full Guest OS.</li>
-                                <li><strong>Size:</strong> Containers are typically MBs; VMs are GBs.</li>
-                                <li><strong>Startup Time:</strong> Containers start in seconds; VMs take minutes.</li>
-                                <li><strong>Isolation:</strong> VMs provide stronger isolation (hardware level), while containers provide process-level isolation.</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="stack vm-stack">
+                  <h4>Virtual Machines</h4>
+                  <div class="layer app">App A</div>
+                  <div class="layer bins">Bins/Libs</div>
+                  <div class="layer guest-os">Guest OS</div>
+                  <div class="layer app">App B</div>
+                  <div class="layer bins">Bins/Libs</div>
+                  <div class="layer guest-os">Guest OS</div>
+                  <div class="layer hypervisor">Hypervisor</div>
+                  <div class="layer infrastructure">Infrastructure</div>
                 </div>
+              </div>
+              <div class="comparison-text">
+                <h3>Key Differences</h3>
+                <ul>
+                  <li>
+                    <strong>OS Usage:</strong> Containers share the host OS
+                    kernel, making them lightweight. VMs include a full Guest
+                    OS.
+                  </li>
+                  <li>
+                    <strong>Size:</strong> Containers are typically MBs; VMs are
+                    GBs.
+                  </li>
+                  <li>
+                    <strong>Startup Time:</strong> Containers start in seconds;
+                    VMs take minutes.
+                  </li>
+                  <li>
+                    <strong>Isolation:</strong> VMs provide stronger isolation
+                    (hardware level), while containers provide process-level
+                    isolation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-                <!-- Dockerfile Guide Section -->
-                <div id="dockerfile" class="guide-block">
-                    <h2>Writing a Dockerfile</h2>
-                    <div class="dockerfile-builder">
-                        <div class="explanation-panel">
-                            <h3>Anatomy of a Dockerfile</h3>
-                            <p>A Dockerfile is a script of instructions. Click on a command to see what it does.</p>
-                            <ul class="instruction-list">
-                                <li onclick="highlightLine('FROM')"><strong>FROM</strong>: Sets the Base Image.</li>
-                                <li onclick="highlightLine('WORKDIR')"><strong>WORKDIR</strong>: Sets the working directory.</li>
-                                <li onclick="highlightLine('COPY')"><strong>COPY</strong>: Copies files from host to container.</li>
-                                <li onclick="highlightLine('RUN')"><strong>RUN</strong>: Executes commands (installing deps).</li>
-                                <li onclick="highlightLine('EXPOSE')"><strong>EXPOSE</strong>: Documents which ports are used.</li>
-                                <li onclick="highlightLine('CMD')"><strong>CMD</strong>: The command to run when container starts.</li>
-                            </ul>
-                        </div>
-                        <div class="code-preview">
-                            <div class="file-name">Dockerfile</div>
-                            <pre><code id="dockerfile-code">
+          <!-- Dockerfile Guide Section -->
+          <div id="dockerfile" class="guide-block">
+            <h2>Writing a Dockerfile</h2>
+            <div class="dockerfile-builder">
+              <div class="explanation-panel">
+                <h3>Anatomy of a Dockerfile</h3>
+                <p>
+                  A Dockerfile is a script of instructions. Click on a command
+                  to see what it does.
+                </p>
+                <ul class="instruction-list">
+                  <li onclick="highlightLine('FROM')">
+                    <strong>FROM</strong>: Sets the Base Image.
+                  </li>
+                  <li onclick="highlightLine('WORKDIR')">
+                    <strong>WORKDIR</strong>: Sets the working directory.
+                  </li>
+                  <li onclick="highlightLine('COPY')">
+                    <strong>COPY</strong>: Copies files from host to container.
+                  </li>
+                  <li onclick="highlightLine('RUN')">
+                    <strong>RUN</strong>: Executes commands (installing deps).
+                  </li>
+                  <li onclick="highlightLine('EXPOSE')">
+                    <strong>EXPOSE</strong>: Documents which ports are used.
+                  </li>
+                  <li onclick="highlightLine('CMD')">
+                    <strong>CMD</strong>: The command to run when container
+                    starts.
+                  </li>
+                </ul>
+              </div>
+              <div class="code-preview">
+                <div class="file-name">Dockerfile</div>
+                <pre><code id="dockerfile-code">
 <span class="keyword">FROM</span> node:18-alpine
 
 <span class="keyword">WORKDIR</span> /app
@@ -160,440 +229,1081 @@
 
 <span class="keyword">CMD</span> ["npm", "start"]
                             </code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Containerize App Section (Visual Builder) -->
+        <section id="containerize" class="section">
+          <h2>Visual Build Pipeline</h2>
+          <p>
+            Watch how Docker builds an image layer by layer. Click "Next Step"
+            to proceed.
+          </p>
+
+          <div class="visual-builder-container">
+            <div class="build-controls">
+              <div class="step-indicator">
+                Step: <span id="build-step-num">0</span>/5
+              </div>
+              <button id="next-build-btn" class="cta-btn small">
+                Start Build
+              </button>
+              <p id="build-description">Ready to start building the image...</p>
+            </div>
+
+            <div class="build-stage">
+              <!-- Left: Source Files -->
+              <div class="source-area">
+                <h4>Source Code</h4>
+                <div class="file-icon" id="file-pkg">package.json</div>
+                <div class="file-icon" id="file-src">src/</div>
+                <div class="file-icon" id="file-docker">Dockerfile</div>
+              </div>
+
+              <!-- Middle: The Daemon/Context -->
+              <div class="daemon-area">
+                <h4>Docker Daemon</h4>
+                <div class="build-context-box" id="context-box">
+                  <span class="label">Build Context</span>
                 </div>
-            </section>
+              </div>
 
-            <!-- Containerize App Section (Visual Builder) -->
-            <section id="containerize" class="section">
-                <h2>Visual Build Pipeline</h2>
-                <p>Watch how Docker builds an image layer by layer. Click "Next Step" to proceed.</p>
-
-                <div class="visual-builder-container">
-                    <div class="build-controls">
-                        <div class="step-indicator">Step: <span id="build-step-num">0</span>/5</div>
-                        <button id="next-build-btn" class="cta-btn small">Start Build</button>
-                        <p id="build-description">Ready to start building the image...</p>
-                    </div>
-
-                    <div class="build-stage">
-                        <!-- Left: Source Files -->
-                        <div class="source-area">
-                            <h4>Source Code</h4>
-                            <div class="file-icon" id="file-pkg">package.json</div>
-                            <div class="file-icon" id="file-src">src/</div>
-                            <div class="file-icon" id="file-docker">Dockerfile</div>
-                        </div>
-
-                        <!-- Middle: The Daemon/Context -->
-                        <div class="daemon-area">
-                            <h4>Docker Daemon</h4>
-                            <div class="build-context-box" id="context-box">
-                                <span class="label">Build Context</span>
-                            </div>
-                        </div>
-
-                        <!-- Right: The Image Layers -->
-                        <div class="image-area">
-                            <h4>Target Image</h4>
-                            <div class="image-stack" id="image-stack">
-                                <!-- Layers will appear here -->
-                            </div>
-                        </div>
-                    </div>
+              <!-- Right: The Image Layers -->
+              <div class="image-area">
+                <h4>Target Image</h4>
+                <div class="image-stack" id="image-stack">
+                  <!-- Layers will appear here -->
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Simulator Section -->
-            <section id="simulator" class="section">
-                <h2>Interactive Terminal Simulator</h2>
-                <div class="simulator-layout">
-                    <div class="guide-panel">
-                        <h3>Mission Control</h3>
-                        <div id="guide-content">
-                            <p>Welcome to the Docker Simulator. Let's start by running your first container.</p>
-                            <div class="step active" data-step="1">
-                                <h4>Step 1: Hello World</h4>
-                                <p>Pull and run a simple image to verify installation.</p>
-                                <code class="command-hint">docker run hello-world</code>
-                            </div>
-                            <div class="step" data-step="2">
-                                <h4>Step 2: List Containers</h4>
-                                <p>See what containers have run (including stopped ones).</p>
-                                <code class="command-hint">docker ps -a</code>
-                            </div>
-                            <div class="step" data-step="3">
-                                <h4>Step 3: Run a Web Server</h4>
-                                <p>Run an Nginx server in detached mode.</p>
-                                <code class="command-hint">docker run -d -p 8080:80 nginx</code>
-                            </div>
-                            <div class="step" data-step="4">
-                                <h4>Step 4: Check Running Containers</h4>
-                                <p>See the currently running Nginx container.</p>
-                                <code class="command-hint">docker ps</code>
-                            </div>
-                        </div>
-                        <div id="feedback-area"></div>
-                    </div>
-                    <div class="terminal-window">
-                        <div class="terminal-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="title">user@dockersim: ~</span>
-                        </div>
-                        <div class="terminal-body" id="terminal-output">
-                            <div class="line">Welcome to Docker Simulator v1.0.0</div>
-                            <div class="line">Type a command to begin...</div>
-                        </div>
-                        <div class="input-line">
-                            <span class="prompt">$</span>
-                            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
-                        </div>
-                    </div>
+        <!-- Simulator Section -->
+        <section id="simulator" class="section">
+          <h2>Interactive Terminal Simulator</h2>
+          <div class="simulator-layout">
+            <div class="guide-panel">
+              <h3>Mission Control</h3>
+              <div id="guide-content">
+                <p>
+                  Welcome to the Docker Simulator. Let's start by running your
+                  first container.
+                </p>
+                <div class="step active" data-step="1">
+                  <h4>Step 1: Hello World</h4>
+                  <p>Pull and run a simple image to verify installation.</p>
+                  <code class="command-hint">docker run hello-world</code>
                 </div>
-            </section>
+                <div class="step" data-step="2">
+                  <h4>Step 2: List Containers</h4>
+                  <p>See what containers have run (including stopped ones).</p>
+                  <code class="command-hint">docker ps -a</code>
+                </div>
+                <div class="step" data-step="3">
+                  <h4>Step 3: Run a Web Server</h4>
+                  <p>Run an Nginx server in detached mode.</p>
+                  <code class="command-hint"
+                    >docker run -d -p 8080:80 nginx</code
+                  >
+                </div>
+                <div class="step" data-step="4">
+                  <h4>Step 4: Check Running Containers</h4>
+                  <p>See the currently running Nginx container.</p>
+                  <code class="command-hint">docker ps</code>
+                </div>
+              </div>
+              <div id="feedback-area"></div>
+            </div>
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">user@dockersim: ~</span>
+              </div>
+              <div class="terminal-body" id="terminal-output">
+                <div class="line">Welcome to Docker Simulator v1.0.0</div>
+                <div class="line">Type a command to begin...</div>
+              </div>
+              <div class="input-line">
+                <span class="prompt">$</span>
+                <input
+                  type="text"
+                  id="terminal-input"
+                  autocomplete="off"
+                  spellcheck="false"
+                  autofocus
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Documentation Section (Commented out for debugging)
-            <section id="documentation" class="section">
-                ...
-            </section>
-            -->
+        <!-- Documentation Section -->
+        <section id="documentation" class="section">
+          <h2>Docker Documentation</h2>
+          <div class="doc-container">
+            <div class="doc-sidebar">
+              <a href="#doc-sample-codes">1. Sample Code Templates</a>
+              <a href="#doc-intro">2. What is Docker?</a>
+              <a href="#doc-commands">3. Basic Commands</a>
+              <a href="#doc-debugging">4. Debugging</a>
+              <a href="#doc-workflow">5. Workflow</a>
+              <a href="#doc-compose">6. Docker Compose</a>
+              <a href="#doc-volumes">7. Volumes</a>
+              <a href="#doc-fullstack">8. Full Stack Tutorial</a>
+              <a href="#doc-compose-commands">9. Docker Compose Commands</a>
+            </div>
+            <div class="doc-content">
+              <div id="doc-sample-codes" class="doc-block">
+                <h3>1. Sample Code Templates</h3>
+                <p>Quick start templates for common Docker scenarios.</p>
 
-            <!-- AWS Deployment Section (SSH Focused) -->
-            <section id="aws" class="section">
-                <h2>AWS Deployment: The SSH Method</h2>
-                <div class="aws-container">
+                <div class="code-block-wrapper">
+                  <div class="file-label">Node.js Dockerfile</div>
+                  <pre><code>FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]</code></pre>
+                </div>
 
-                    <div class="aws-intro">
-                        <h3>What is SSH Deployment?</h3>
-                        <p><strong>SSH (Secure Shell)</strong> is the industry-standard protocol for connecting to remote servers securely over an unsecured network. In this method, you log directly into a cloud server (like an AWS EC2 instance) to execute commands as if you were sitting right in front of it.</p>
-                    </div>
+                <div class="code-block-wrapper">
+                  <div class="file-label">Python Dockerfile</div>
+                  <pre><code>FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["python", "app.py"]</code></pre>
+                </div>
 
-                    <div class="comparison-split">
-                        <div class="split-card ssh-card" style="grid-column: span 2;">
-                            <div class="card-header">
-                                <div class="icon">🔐</div>
-                                <h4>Why use SSH for Deployment?</h4>
-                            </div>
-                            <div class="card-body">
-                                <ul class="usage-list">
-                                    <li><strong>Full Control:</strong> You have root access to the operating system. You can install dependencies, debug logs, and monitor system resources directly.</li>
-                                    <li><strong>Security:</strong> SSH uses cryptographic keys (PEM files) rather than simple passwords, making it extremely difficult for attackers to brute-force.</li>
-                                    <li><strong>Standardization:</strong> Whether you use AWS, Google Cloud, or Azure, SSH is the universal language of remote server management.</li>
-                                    <li><strong>Debugging:</strong> When a container crashes in production, SSH allows you to "enter" the server and inspect the wreckage immediately.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="code-block-wrapper">
+                  <div class="file-label">Nginx Static Site Dockerfile</div>
+                  <pre><code>FROM nginx:alpine
+COPY . /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+                </div>
+              </div>
 
-                    <div class="tutorial-block">
-                        <h3>How it Works: The Architecture</h3>
-                        <div class="architecture-diagram-visual">
-                            <div class="tier">
-                                <span class="tier-icon">💻</span>
-                                <span>Your Laptop</span>
-                                <small>SSH Client</small>
-                            </div>
-                            <div class="connector">➡️ Encrypted Tunnel (Port 22) ➡️</div>
-                            <div class="tier">
-                                <span class="tier-icon">☁️</span>
-                                <span>AWS EC2 Instance</span>
-                                <small>SSH Server</small>
-                            </div>
-                        </div>
-                        <p>You hold a private key (<code>.pem</code> file). The server holds the public lock. Only your key can open the connection.</p>
-                    </div>
+              <div id="doc-intro" class="doc-block">
+                <h3>2. What is Docker?</h3>
+                <p>
+                  Docker is a platform that uses OS-level virtualization to
+                  deliver software in packages called containers. Containers are
+                  isolated from one another and bundle their own software,
+                  libraries and configuration files; they can communicate with
+                  each other through well-defined channels.
+                </p>
+                <div class="key-point">
+                  <strong>Key Benefit:</strong> "It works on my machine" is no
+                  longer an issue. Docker ensures consistency across
+                  Development, Testing, and Production environments.
+                </div>
+              </div>
 
-                    <div class="tutorial-block">
-                        <h3>Step-by-Step Guide</h3>
+              <div id="doc-commands" class="doc-block">
+                <h3>3. Basic Commands</h3>
+                <p>The essential CLI commands you need to know.</p>
 
-                        <div class="step-card">
-                            <h4>1. Launch an Instance</h4>
-                            <p><strong>What:</strong> Create a virtual server in the cloud.</p>
-                            <p><strong>How:</strong> Use the <a href="https://aws.amazon.com/console/" target="_blank">AWS Console</a> or <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank">AWS CLI</a> to launch an Ubuntu or Linux AMI.</p>
-                            <pre><code>aws ec2 run-instances --image-id ami-xyz --count 1 --instance-type t2.micro --key-name MyKeyPair</code></pre>
-                        </div>
+                <div class="command-ref">
+                  <div class="cmd-item">
+                    <code>docker version</code>
+                    <span>Check installed version</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker pull [image]</code>
+                    <span>Download an image from Docker Hub</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker images</code>
+                    <span>List all downloaded images</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker run [image]</code>
+                    <span>Start a container from an image</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker run -d [image]</code>
+                    <span>Run in detached mode (background)</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code
+                      >docker run -p [host_port]:[container_port] [image]</code
+                    >
+                    <span>Map ports (e.g., -p 3000:80)</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker ps</code>
+                    <span>List currently running containers</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker ps -a</code>
+                    <span>List ALL containers (running & stopped)</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker stop [container_id]</code>
+                    <span>Stop a running container</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker start [container_id]</code>
+                    <span>Start a stopped container</span>
+                  </div>
+                </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>2. Get Your Key Pair</h4>
-                            <p><strong>What:</strong> Download the <code>key.pem</code> file.</p>
-                            <p><strong>Why:</strong> This file is your identity. Lose it, and you lose access to the server forever.</p>
-                            <p><strong>How:</strong> AWS provides this once during creation.</p>
-                        </div>
+              <div id="doc-debugging" class="doc-block">
+                <h3>4. Debugging Containers</h3>
+                <p>
+                  When things go wrong, use these commands to inspect inside.
+                </p>
 
-                        <div class="step-card">
-                            <h4>3. Establish Connection</h4>
-                            <p><strong>What:</strong> Open the secure tunnel.</p>
-                            <p><strong>How:</strong> Run the SSH command with your key and the server's IP.</p>
-                            <pre><code>ssh -i "MyKeyPair.pem" ubuntu@54.123.45.67</code></pre>
+                <div class="code-block-wrapper">
+                  <div class="file-label">View Logs</div>
+                  <pre><code>docker logs [container_id]
+docker logs -f [container_id]  # Follow output</code></pre>
+                </div>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Permission Denied</h4>
-                                <span class="error-title">Error: WARNING: UNPROTECTED PRIVATE KEY FILE!</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> Your .pem file is too open (readable by everyone).</li>
-                                    <li><strong>Fix (Mac/Linux):</strong> Run <code>chmod 400 MyKeyPair.pem</code> to make it read-only.</li>
-                                    <li><strong>Fix (Windows):</strong> Go to File Properties -> Security -> Remove all users except yourself.</li>
-                                </ul>
-                            </div>
+                <div class="code-block-wrapper">
+                  <div class="file-label">Enter Container Terminal</div>
+                  <pre><code>docker exec -it [container_id] /bin/bash
+# OR
+docker exec -it [container_id] /bin/sh</code></pre>
+                </div>
+              </div>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Connection Timed Out</h4>
-                                <span class="error-title">ssh: connect to host 54.x.x.x port 22: Connection timed out</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> The AWS Security Group (Firewall) is blocking Port 22.</li>
-                                    <li><strong>Fix:</strong> Go to AWS Console -> EC2 -> Security Groups -> Edit Inbound Rules -> Add Rule: SSH (Port 22) from My IP.</li>
-                                </ul>
-                            </div>
-                        </div>
+              <div id="doc-workflow" class="doc-block">
+                <h3>5. Docker Workflow</h3>
+                <p>The lifecycle of a Docker application.</p>
+                <div class="workflow-diagram">
+                  <div class="flow-step">
+                    Dockerfile <br /><span>(Source Code)</span>
+                  </div>
+                  <div class="arrow">→</div>
+                  <div class="flow-step">
+                    Image <br /><span>(Portable Artifact)</span>
+                  </div>
+                  <div class="arrow">→</div>
+                  <div class="flow-step">
+                    Container <br /><span>(Running Process)</span>
+                  </div>
+                </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>4. Install Docker (Remote)</h4>
-                            <p><strong>What:</strong> Set up the runtime environment.</p>
-                            <p><strong>Why:</strong> Fresh servers are empty. They don't know what Docker is yet.</p>
-                            <pre><code>sudo apt-get update
+              <div id="doc-compose" class="doc-block">
+                <h3>6. Docker Compose</h3>
+                <p>
+                  A tool for defining and running multi-container Docker
+                  applications. Uses a YAML file to configure application
+                  services.
+                </p>
+
+                <div class="code-block-wrapper">
+                  <div class="file-label">docker-compose.yaml</div>
+                  <pre><code>version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"</code></pre>
+                </div>
+
+                <div class="command-ref">
+                  <div class="cmd-item">
+                    <code>docker-compose up</code>
+                    <span>Start all services</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker-compose up -d</code>
+                    <span>Start in background</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker-compose down</code>
+                    <span>Stop and remove containers/networks</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="doc-volumes" class="doc-block">
+                <h3>7. Volumes (Data Persistence)</h3>
+                <p>
+                  By default, when a container is removed, its data is lost.
+                  Volumes persist data outside the container.
+                </p>
+
+                <div class="code-block-wrapper">
+                  <div class="file-label">Host Volume Mapping</div>
+                  <pre><code>docker run -v /home/user/data:/var/lib/mysql mysql</code></pre>
+                </div>
+                <p>
+                  This maps <code>/home/user/data</code> on your computer to
+                  <code>/var/lib/mysql</code> inside the container.
+                </p>
+              </div>
+
+              <div id="doc-fullstack" class="doc-block">
+                <h3>8. Full Stack Project Tutorial</h3>
+                <p>
+                  Follow this guide to build a complete application with
+                  Frontend, Backend, and Database.
+                </p>
+
+                <div class="tutorial-step">
+                  <h4>Step 1: Create Backend (Node.js)</h4>
+                  <p>
+                    Create a file named <code>server.js</code> for your API.
+                  </p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">backend/server.js</div>
+                    <pre><code>const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+mongoose.connect('mongodb://mongo:27017/testdb');
+
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Backend Connected!', 
+    db: mongoose.connection.readyState === 1 ? 'MongoDB Connected' : 'MongoDB Disconnected' 
+  });
+});
+
+app.listen(3000, () => console.log('Backend running on port 3000'));</code></pre>
+                  </div>
+                </div>
+
+                <div class="tutorial-step">
+                  <h4>Step 2: Create Frontend (HTML)</h4>
+                  <p>
+                    Create a simple <code>index.html</code> to consume the API.
+                  </p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">frontend/index.html</div>
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Docker Compose Demo&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    h1 { color: #667eea; margin-bottom: 20px; }
+    #status { font-size: 18px; margin-top: 20px; }
+    .success { color: #27ae60; font-weight: bold; }
+    .error { color: #e74c3c; font-weight: bold; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="card"&gt;
+    &lt;h1&gt;🐳 Docker Compose Demo&lt;/h1&gt;
+    &lt;p&gt;Frontend ✓ Backend ✓ Database ✓&lt;/p&gt;
+    &lt;div id="status"&gt;Connecting...&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;script&gt;
+    fetch('http://localhost:3000')
+      .then(res =&gt; res.json())
+      .then(data =&gt; {
+        document.getElementById('status').innerHTML = 
+          `&lt;div class="success"&gt;✓ ${data.message}&lt;br&gt;✓ ${data.db}&lt;/div&gt;`;
+      })
+      .catch(err =&gt; {
+        document.getElementById('status').innerHTML = 
+          `&lt;div class="error"&gt;✗ Connection Failed: ${err.message}&lt;/div&gt;`;
+      });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                  </div>
+                </div>
+
+                <div class="tutorial-step">
+                  <h4>Step 3: Dockerize (Dockerfiles)</h4>
+                  <p>Create a <code>Dockerfile</code> in the backend folder.</p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">backend/Dockerfile</div>
+                    <pre><code>FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "server.js"]</code></pre>
+                  </div>
+                  <br />
+                  <p>
+                    Create a <code>Dockerfile</code> in the frontend folder.
+                  </p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">frontend/Dockerfile</div>
+                    <pre><code>FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+                  </div>
+                </div>
+
+                <div class="tutorial-step">
+                  <h4>Step 4: Package.json</h4>
+                  <p>
+                    Create a <code>package.json</code> in the backend folder.
+                  </p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">backend/package.json</div>
+                    <pre><code>{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.0",
+    "cors": "^2.8.5"
+  }
+}</code></pre>
+                  </div>
+                </div>
+
+                <div class="tutorial-step">
+                  <h4>Step 5: Orchestrate (Docker Compose)</h4>
+                  <p>
+                    Create <code>docker-compose.yaml</code> in the root to link
+                    everything.
+                  </p>
+                  <div class="code-block-wrapper">
+                    <div class="file-label">docker-compose.yaml</div>
+                    <pre><code>version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+  
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+      
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div id="doc-compose-commands" class="doc-block">
+                <h3>9. Docker Compose Commands</h3>
+                <p>
+                  Essential commands for managing multi-container applications
+                  with Docker Compose.
+                </p>
+
+                <div class="command-ref">
+                  <div class="cmd-item">
+                    <code>docker-compose logs -f</code>
+                    <span>View logs from all services (follow mode)</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker-compose down</code>
+                    <span
+                      >Stop all services and remove containers/networks</span
+                    >
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker-compose restart</code>
+                    <span>Restart all services</span>
+                  </div>
+                  <div class="cmd-item">
+                    <code>docker-compose down -v</code>
+                    <span>Stop and remove everything including volumes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AWS Deployment Section (SSH Focused) -->
+        <section id="aws" class="section">
+          <h2>AWS Deployment: The SSH Method</h2>
+          <div class="aws-container">
+            <div class="aws-intro">
+              <h3>What is SSH Deployment?</h3>
+              <p>
+                <strong>SSH (Secure Shell)</strong> is the industry-standard
+                protocol for connecting to remote servers securely over an
+                unsecured network. In this method, you log directly into a cloud
+                server (like an AWS EC2 instance) to execute commands as if you
+                were sitting right in front of it.
+              </p>
+            </div>
+
+            <div class="comparison-split">
+              <div class="split-card ssh-card" style="grid-column: span 2">
+                <div class="card-header">
+                  <div class="icon">🔐</div>
+                  <h4>Why use SSH for Deployment?</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="usage-list">
+                    <li>
+                      <strong>Full Control:</strong> You have root access to the
+                      operating system. You can install dependencies, debug
+                      logs, and monitor system resources directly.
+                    </li>
+                    <li>
+                      <strong>Security:</strong> SSH uses cryptographic keys
+                      (PEM files) rather than simple passwords, making it
+                      extremely difficult for attackers to brute-force.
+                    </li>
+                    <li>
+                      <strong>Standardization:</strong> Whether you use AWS,
+                      Google Cloud, or Azure, SSH is the universal language of
+                      remote server management.
+                    </li>
+                    <li>
+                      <strong>Debugging:</strong> When a container crashes in
+                      production, SSH allows you to "enter" the server and
+                      inspect the wreckage immediately.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tutorial-block">
+              <h3>How it Works: The Architecture</h3>
+              <div class="architecture-diagram-visual">
+                <div class="tier">
+                  <span class="tier-icon">💻</span>
+                  <span>Your Laptop</span>
+                  <small>SSH Client</small>
+                </div>
+                <div class="connector">➡️ Encrypted Tunnel (Port 22) ➡️</div>
+                <div class="tier">
+                  <span class="tier-icon">☁️</span>
+                  <span>AWS EC2 Instance</span>
+                  <small>SSH Server</small>
+                </div>
+              </div>
+              <p>
+                You hold a private key (<code>.pem</code> file). The server
+                holds the public lock. Only your key can open the connection.
+              </p>
+            </div>
+
+            <div class="tutorial-block">
+              <h3>Step-by-Step Guide</h3>
+
+              <div class="step-card">
+                <h4>1. Launch an Instance</h4>
+                <p>
+                  <strong>What:</strong> Create a virtual server in the cloud.
+                </p>
+                <p>
+                  <strong>How:</strong> Use the
+                  <a href="https://aws.amazon.com/console/" target="_blank"
+                    >AWS Console</a
+                  >
+                  or
+                  <a
+                    href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"
+                    target="_blank"
+                    >AWS CLI</a
+                  >
+                  to launch an Ubuntu or Linux AMI.
+                </p>
+                <pre><code>aws ec2 run-instances --image-id ami-xyz --count 1 --instance-type t2.micro --key-name MyKeyPair</code></pre>
+              </div>
+
+              <div class="step-card">
+                <h4>2. Get Your Key Pair</h4>
+                <p>
+                  <strong>What:</strong> Download the <code>key.pem</code> file.
+                </p>
+                <p>
+                  <strong>Why:</strong> This file is your identity. Lose it, and
+                  you lose access to the server forever.
+                </p>
+                <p>
+                  <strong>How:</strong> AWS provides this once during creation.
+                </p>
+              </div>
+
+              <div class="step-card">
+                <h4>3. Establish Connection</h4>
+                <p><strong>What:</strong> Open the secure tunnel.</p>
+                <p>
+                  <strong>How:</strong> Run the SSH command with your key and
+                  the server's IP.
+                </p>
+                <pre><code>ssh -i "MyKeyPair.pem" ubuntu@54.123.45.67</code></pre>
+
+                <div class="error-prevention-block">
+                  <h4>Common Error: Permission Denied</h4>
+                  <span class="error-title"
+                    >Error: WARNING: UNPROTECTED PRIVATE KEY FILE!</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> Your .pem file is too open
+                      (readable by everyone).
+                    </li>
+                    <li>
+                      <strong>Fix (Mac/Linux):</strong> Run
+                      <code>chmod 400 MyKeyPair.pem</code> to make it read-only.
+                    </li>
+                    <li>
+                      <strong>Fix (Windows):</strong> Go to File Properties ->
+                      Security -> Remove all users except yourself.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="error-prevention-block">
+                  <h4>Common Error: Connection Timed Out</h4>
+                  <span class="error-title"
+                    >ssh: connect to host 54.x.x.x port 22: Connection timed
+                    out</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> The AWS Security Group (Firewall)
+                      is blocking Port 22.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Go to AWS Console -> EC2 -> Security
+                      Groups -> Edit Inbound Rules -> Add Rule: SSH (Port 22)
+                      from My IP.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <h4>4. Install Docker (Remote)</h4>
+                <p><strong>What:</strong> Set up the runtime environment.</p>
+                <p>
+                  <strong>Why:</strong> Fresh servers are empty. They don't know
+                  what Docker is yet.
+                </p>
+                <pre><code>sudo apt-get update
 sudo apt-get install docker.io</code></pre>
-                        </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>5. Deploy Application</h4>
-                            <p><strong>What:</strong> Pull and run your containers.</p>
-                            <pre><code>sudo docker run -d -p 80:80 nginx</code></pre>
+              <div class="step-card">
+                <h4>5. Deploy Application</h4>
+                <p><strong>What:</strong> Pull and run your containers.</p>
+                <pre><code>sudo docker run -d -p 80:80 nginx</code></pre>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Permission Denied</h4>
-                                <span class="error-title">docker: Got permission denied while trying to connect to the Docker daemon socket</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> Your user doesn't have permission to talk to the Docker daemon.</li>
-                                    <li><strong>Fix:</strong> Use <code>sudo</code> before every docker command (e.g., <code>sudo docker ps</code>).</li>
-                                    <li><strong>Prevention:</strong> Add your user to the docker group: <code>sudo usermod -aG docker $USER</code> (requires re-login).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="aws-simulation-prompt">
-                        <h3>Simulation: SSH Deployment</h3>
-                        <p>Practice connecting to a remote server and deploying a stack manually.</p>
-                        <button class="cta-btn" onclick="startAwsMission()">Start SSH Mission</button>
-                    </div>
+                <div class="error-prevention-block">
+                  <h4>Common Error: Permission Denied</h4>
+                  <span class="error-title"
+                    >docker: Got permission denied while trying to connect to
+                    the Docker daemon socket</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> Your user doesn't have permission
+                      to talk to the Docker daemon.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Use <code>sudo</code> before every
+                      docker command (e.g., <code>sudo docker ps</code>).
+                    </li>
+                    <li>
+                      <strong>Prevention:</strong> Add your user to the docker
+                      group:
+                      <code>sudo usermod -aG docker $USER</code> (requires
+                      re-login).
+                    </li>
+                  </ul>
                 </div>
-            </section>
+              </div>
+            </div>
 
-            <!-- ECR Masterclass Section -->
-            <section id="ecr-masterclass" class="section">
-                <h2>ECR Masterclass: From Local to Cloud</h2>
-                <div class="masterclass-container">
+            <div class="aws-simulation-prompt">
+              <h3>Simulation: SSH Deployment</h3>
+              <p>
+                Practice connecting to a remote server and deploying a stack
+                manually.
+              </p>
+              <button class="cta-btn" onclick="startAwsMission()">
+                Start SSH Mission
+              </button>
+            </div>
+          </div>
+        </section>
 
-                    <div class="tutorial-block">
-                        <h3>Goal</h3>
-                        <p>You will learn how to: <strong>Build</strong> a Docker image, <strong>Push</strong> it to AWS ECR (Private Registry), <strong>Pull</strong> it from any device, and <strong>Run</strong> it.</p>
-                    </div>
+        <!-- ECR Masterclass Section -->
+        <section id="ecr-masterclass" class="section">
+          <h2>ECR Masterclass: From Local to Cloud</h2>
+          <div class="masterclass-container">
+            <div class="tutorial-block">
+              <h3>Goal</h3>
+              <p>
+                You will learn how to: <strong>Build</strong> a Docker image,
+                <strong>Push</strong> it to AWS ECR (Private Registry),
+                <strong>Pull</strong> it from any device, and
+                <strong>Run</strong> it.
+              </p>
+            </div>
 
-                    <div class="tutorial-block">
-                        <h3>Step 0: Prerequisites</h3>
-                        <ul class="checklist">
-                            <li>✅ <a href="https://www.docker.com/products/docker-desktop/" target="_blank">Docker Desktop</a> installed & running</li>
-                            <li>✅ <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank">AWS CLI</a> installed</li>
-                            <li>✅ PowerShell terminal working (<code>aws --version</code>)</li>
-                        </ul>
-                    </div>
+            <div class="tutorial-block">
+              <h3>Step 0: Prerequisites</h3>
+              <ul class="checklist">
+                <li>
+                  ✅
+                  <a
+                    href="https://www.docker.com/products/docker-desktop/"
+                    target="_blank"
+                    >Docker Desktop</a
+                  >
+                  installed & running
+                </li>
+                <li>
+                  ✅
+                  <a
+                    href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html"
+                    target="_blank"
+                    >AWS CLI</a
+                  >
+                  installed
+                </li>
+                <li>
+                  ✅ PowerShell terminal working (<code>aws --version</code>)
+                </li>
+              </ul>
+            </div>
 
-                    <div class="tutorial-block">
-                        <h3>Part 1: Simple Node.js Project</h3>
-                        <p><strong>What:</strong> We'll create a minimal Node.js app to test the pipeline.</p>
+            <div class="tutorial-block">
+              <h3>Part 1: Simple Node.js Project</h3>
+              <p>
+                <strong>What:</strong> We'll create a minimal Node.js app to
+                test the pipeline.
+              </p>
 
-                        <div class="step-card">
-                            <h4>Step 1: Create Project Folder</h4>
-                            <pre><code>mkdir myapp
+              <div class="step-card">
+                <h4>Step 1: Create Project Folder</h4>
+                <pre><code>mkdir myapp
 cd myapp</code></pre>
-                        </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 2: Create Files</h4>
-                            <p><strong>index.js</strong></p>
-                            <pre><code>console.log("Hello from Docker + AWS ECR!");</code></pre>
-                            <p><strong>Dockerfile</strong></p>
-                            <pre><code>FROM node:18-alpine
+              <div class="step-card">
+                <h4>Step 2: Create Files</h4>
+                <p><strong>index.js</strong></p>
+                <pre><code>console.log("Hello from Docker + AWS ECR!");</code></pre>
+                <p><strong>Dockerfile</strong></p>
+                <pre><code>FROM node:18-alpine
 WORKDIR /app
 COPY . .
 CMD ["node", "index.js"]</code></pre>
-                        </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3: Build Image</h4>
-                            <p><strong>Why:</strong> Docker needs to package your code and runtime into a single artifact.</p>
-                            <pre><code>docker build -t myapp:latest .</code></pre>
+              <div class="step-card">
+                <h4>Step 3: Build Image</h4>
+                <p>
+                  <strong>Why:</strong> Docker needs to package your code and
+                  runtime into a single artifact.
+                </p>
+                <pre><code>docker build -t myapp:latest .</code></pre>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Daemon Not Running</h4>
-                                <span class="error-title">error during connect: This error may also indicate that the docker daemon is not running.</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> Docker Desktop is closed or crashed.</li>
-                                    <li><strong>Fix:</strong> Open Docker Desktop application and wait for the whale icon to stop animating.</li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="error-prevention-block">
+                  <h4>Common Error: Daemon Not Running</h4>
+                  <span class="error-title"
+                    >error during connect: This error may also indicate that the
+                    docker daemon is not running.</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> Docker Desktop is closed or
+                      crashed.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Open Docker Desktop application and
+                      wait for the whale icon to stop animating.
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 4: Run Locally</h4>
-                            <p><strong>Why:</strong> Always test locally before pushing to the cloud.</p>
-                            <pre><code>docker run --name myapp_container myapp:latest</code></pre>
-                            <p><em>Output: "Hello from Docker + AWS ECR!"</em></p>
-                        </div>
-                    </div>
+              <div class="step-card">
+                <h4>Step 4: Run Locally</h4>
+                <p>
+                  <strong>Why:</strong> Always test locally before pushing to
+                  the cloud.
+                </p>
+                <pre><code>docker run --name myapp_container myapp:latest</code></pre>
+                <p><em>Output: "Hello from Docker + AWS ECR!"</em></p>
+              </div>
+            </div>
 
-                    <div class="tutorial-block">
-                        <h3>Part 2: Static Website (HTML/CSS/JS)</h3>
-                        <p><strong>What:</strong> A real-world example using Nginx to serve a website.</p>
+            <div class="tutorial-block">
+              <h3>Part 2: Static Website (HTML/CSS/JS)</h3>
+              <p>
+                <strong>What:</strong> A real-world example using Nginx to serve
+                a website.
+              </p>
 
-                        <div class="step-card">
-                            <h4>Step 1: Create Web Files</h4>
-                            <p>Create <code>index.html</code>, <code>style.css</code>, and <code>script.js</code>.</p>
-                        </div>
+              <div class="step-card">
+                <h4>Step 1: Create Web Files</h4>
+                <p>
+                  Create <code>index.html</code>, <code>style.css</code>, and
+                  <code>script.js</code>.
+                </p>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 2: Update Dockerfile</h4>
-                            <p><strong>Why:</strong> We switch from Node to Nginx because Nginx is optimized for static files.</p>
-                            <pre><code>FROM nginx:alpine
+              <div class="step-card">
+                <h4>Step 2: Update Dockerfile</h4>
+                <p>
+                  <strong>Why:</strong> We switch from Node to Nginx because
+                  Nginx is optimized for static files.
+                </p>
+                <pre><code>FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY . /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]</code></pre>
-                        </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3: Build & Run Website</h4>
-                            <pre><code>docker build -t mywebsite:latest .
+              <div class="step-card">
+                <h4>Step 3: Build & Run Website</h4>
+                <pre><code>docker build -t mywebsite:latest .
 docker run -d -p 8080:80 mywebsite:latest</code></pre>
-                            <p>Visit <code>http://localhost:8080</code> to see it.</p>
-                        </div>
-                    </div>
+                <p>Visit <code>http://localhost:8080</code> to see it.</p>
+              </div>
+            </div>
 
-                    <div class="tutorial-block">
-                        <h3>Part 3: Push to AWS ECR</h3>
+            <div class="tutorial-block">
+              <h3>Part 3: Push to AWS ECR</h3>
 
-                        <div class="concept-card" style="margin-bottom: 2rem; border: 2px solid #000; padding: 1.5rem;">
-                            <h4>What is ECR?</h4>
-                            <p><strong>ECR (Elastic Container Registry)</strong> is a cloud storage place where you upload your Docker images. Think of it as <strong>GitHub for Docker images</strong>.</p>
+              <div
+                class="concept-card"
+                style="
+                  margin-bottom: 2rem;
+                  border: 2px solid #000;
+                  padding: 1.5rem;
+                "
+              >
+                <h4>What is ECR?</h4>
+                <p>
+                  <strong>ECR (Elastic Container Registry)</strong> is a cloud
+                  storage place where you upload your Docker images. Think of it
+                  as <strong>GitHub for Docker images</strong>.
+                </p>
 
-                            <h4>Why use ECR instead of Docker Hub?</h4>
-                            <ul class="usage-list">
-                                <li><strong>Integration:</strong> Seamlessly works with ECS, EKS, and Lambda.</li>
-                                <li><strong>Security:</strong> Images are private by default and protected by IAM roles.</li>
-                                <li><strong>Speed:</strong> Pulling images from ECR to EC2 is faster because it stays within the AWS network.</li>
-                            </ul>
+                <h4>Why use ECR instead of Docker Hub?</h4>
+                <ul class="usage-list">
+                  <li>
+                    <strong>Integration:</strong> Seamlessly works with ECS,
+                    EKS, and Lambda.
+                  </li>
+                  <li>
+                    <strong>Security:</strong> Images are private by default and
+                    protected by IAM roles.
+                  </li>
+                  <li>
+                    <strong>Speed:</strong> Pulling images from ECR to EC2 is
+                    faster because it stays within the AWS network.
+                  </li>
+                </ul>
 
-                            <h4>The Analogy</h4>
-                            <p>🧑‍💻 <strong>Developers</strong> create the image.<br>
-                            📦 <strong>Upload</strong> it to ECR (The Warehouse).<br>
-                            🖥️ <strong>Any Machine</strong> (EC2, Laptop) pulls it from the warehouse to run.</p>
-                        </div>
+                <h4>The Analogy</h4>
+                <p>
+                  🧑‍💻 <strong>Developers</strong> create the image.<br />
+                  📦 <strong>Upload</strong> it to ECR (The Warehouse).<br />
+                  🖥️ <strong>Any Machine</strong> (EC2, Laptop) pulls it from
+                  the warehouse to run.
+                </p>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3.1: Create Repository</h4>
-                            <p><strong>Why:</strong> You need a specific "folder" in the cloud to store this project's images.</p>
-                            <pre><code>aws ecr create-repository --repository-name mywebsite --region us-east-1</code></pre>
-                        </div>
+              <div class="step-card">
+                <h4>Step 3.1: Create Repository</h4>
+                <p>
+                  <strong>Why:</strong> You need a specific "folder" in the
+                  cloud to store this project's images.
+                </p>
+                <pre><code>aws ecr create-repository --repository-name mywebsite --region us-east-1</code></pre>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3.2: Login</h4>
-                            <p><strong>Why:</strong> ECR is private. Docker needs permission to talk to it.</p>
-                            <pre><code>aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin [YOUR_ECR_URL]</code></pre>
+              <div class="step-card">
+                <h4>Step 3.2: Login</h4>
+                <p>
+                  <strong>Why:</strong> ECR is private. Docker needs permission
+                  to talk to it.
+                </p>
+                <pre><code>aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin [YOUR_ECR_URL]</code></pre>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Login Failed</h4>
-                                <span class="error-title">An error occurred (UnrecognizedClientException) when calling the GetAuthorizationToken operation</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> Your AWS CLI is not configured with valid credentials.</li>
-                                    <li><strong>Fix:</strong> Run <code>aws configure</code> and enter your Access Key and Secret Key again.</li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="error-prevention-block">
+                  <h4>Common Error: Login Failed</h4>
+                  <span class="error-title"
+                    >An error occurred (UnrecognizedClientException) when
+                    calling the GetAuthorizationToken operation</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> Your AWS CLI is not configured
+                      with valid credentials.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Run <code>aws configure</code> and
+                      enter your Access Key and Secret Key again.
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3.3: Tag Image</h4>
-                            <p><strong>Why:</strong> Docker needs to know <em>where</em> to push the image. The tag acts as the address label.</p>
-                            <pre><code>docker tag mywebsite:latest [YOUR_ECR_URL]/mywebsite:latest</code></pre>
-                        </div>
+              <div class="step-card">
+                <h4>Step 3.3: Tag Image</h4>
+                <p>
+                  <strong>Why:</strong> Docker needs to know <em>where</em> to
+                  push the image. The tag acts as the address label.
+                </p>
+                <pre><code>docker tag mywebsite:latest [YOUR_ECR_URL]/mywebsite:latest</code></pre>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 3.4: Push Image</h4>
-                            <p><strong>What:</strong> Uploads the layers to AWS.</p>
-                            <pre><code>docker push [YOUR_ECR_URL]/mywebsite:latest</code></pre>
+              <div class="step-card">
+                <h4>Step 3.4: Push Image</h4>
+                <p><strong>What:</strong> Uploads the layers to AWS.</p>
+                <pre><code>docker push [YOUR_ECR_URL]/mywebsite:latest</code></pre>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Access Denied</h4>
-                                <span class="error-title">denied: User: arn:aws:iam::... is not authorized to perform: ecr:InitiateLayerUpload</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> Your IAM User does not have the `AmazonEC2ContainerRegistryFullAccess` policy.</li>
-                                    <li><strong>Fix:</strong> Go to IAM Console -> Users -> Add Permissions -> Attach existing policies -> Search "ECR" -> Select FullAccess.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="error-prevention-block">
+                  <h4>Common Error: Access Denied</h4>
+                  <span class="error-title"
+                    >denied: User: arn:aws:iam::... is not authorized to
+                    perform: ecr:InitiateLayerUpload</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> Your IAM User does not have the
+                      `AmazonEC2ContainerRegistryFullAccess` policy.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Go to IAM Console -> Users -> Add
+                      Permissions -> Attach existing policies -> Search "ECR" ->
+                      Select FullAccess.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-                    <div class="tutorial-block">
-                        <h3>Part 4: Pull on Another Device</h3>
-                        <p><strong>Scenario:</strong> A student's laptop or a production server needs to run your app.</p>
+            <div class="tutorial-block">
+              <h3>Part 4: Pull on Another Device</h3>
+              <p>
+                <strong>Scenario:</strong> A student's laptop or a production
+                server needs to run your app.
+              </p>
 
-                        <div class="network-visualizer">
-                            <div class="device" id="device-laptop-a">
-                                <div class="icon">💻</div>
-                                <span>Laptop A (You)</span>
-                            </div>
-                            <div class="cloud-path">
-                                <div class="packet" id="demo-packet">📦</div>
-                                <div class="line"></div>
-                                <div class="cloud-icon">☁️ AWS ECR</div>
-                                <div class="line"></div>
-                            </div>
-                            <div class="device" id="device-laptop-b">
-                                <div class="icon">🖥️</div>
-                                <span>Laptop B (Student)</span>
-                            </div>
-                        </div>
+              <div class="network-visualizer">
+                <div class="device" id="device-laptop-a">
+                  <div class="icon">💻</div>
+                  <span>Laptop A (You)</span>
+                </div>
+                <div class="cloud-path">
+                  <div class="packet" id="demo-packet">📦</div>
+                  <div class="line"></div>
+                  <div class="cloud-icon">☁️ AWS ECR</div>
+                  <div class="line"></div>
+                </div>
+                <div class="device" id="device-laptop-b">
+                  <div class="icon">🖥️</div>
+                  <span>Laptop B (Student)</span>
+                </div>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 4.1: Configure Student Laptop</h4>
-                            <p><strong>What:</strong> The other machine needs AWS CLI installed and credentials configured.</p>
-                            <pre><code>aws configure</code></pre>
-                        </div>
+              <div class="step-card">
+                <h4>Step 4.1: Configure Student Laptop</h4>
+                <p>
+                  <strong>What:</strong> The other machine needs AWS CLI
+                  installed and credentials configured.
+                </p>
+                <pre><code>aws configure</code></pre>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 4.2: Login (Again)</h4>
-                            <p><strong>Why:</strong> The student's laptop must also authenticate to access the private repo.</p>
-                            <pre><code>aws ecr get-login-password ... | docker login ...</code></pre>
-                        </div>
+              <div class="step-card">
+                <h4>Step 4.2: Login (Again)</h4>
+                <p>
+                  <strong>Why:</strong> The student's laptop must also
+                  authenticate to access the private repo.
+                </p>
+                <pre><code>aws ecr get-login-password ... | docker login ...</code></pre>
+              </div>
 
-                        <div class="step-card">
-                            <h4>Step 4.3: Pull & Run</h4>
-                            <p><strong>Result:</strong> The website runs instantly without needing the source code!</p>
-                            <pre><code>docker pull [YOUR_ECR_URL]/mywebsite:latest
+              <div class="step-card">
+                <h4>Step 4.3: Pull & Run</h4>
+                <p>
+                  <strong>Result:</strong> The website runs instantly without
+                  needing the source code!
+                </p>
+                <pre><code>docker pull [YOUR_ECR_URL]/mywebsite:latest
 docker run -d -p 8082:80 [YOUR_ECR_URL]/mywebsite:latest</code></pre>
 
-                            <div class="error-prevention-block">
-                                <h4>Common Error: Image Not Found</h4>
-                                <span class="error-title">Error response from daemon: manifest for ... not found</span>
-                                <ul>
-                                    <li><strong>Cause:</strong> You might have forgotten to push the image from Laptop A, or the tag is different.</li>
-                                    <li><strong>Fix:</strong> Check the ECR Console to ensure the image exists and the tag (e.g., `latest`) matches exactly.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="aws-simulation-prompt">
-                        <h3>Interactive Simulation</h3>
-                        <p>Practice this entire workflow in our simulator now.</p>
-                        <button class="cta-btn" onclick="startMasterclassMission()">Start Masterclass Mission</button>
-                    </div>
+                <div class="error-prevention-block">
+                  <h4>Common Error: Image Not Found</h4>
+                  <span class="error-title"
+                    >Error response from daemon: manifest for ... not
+                    found</span
+                  >
+                  <ul>
+                    <li>
+                      <strong>Cause:</strong> You might have forgotten to push
+                      the image from Laptop A, or the tag is different.
+                    </li>
+                    <li>
+                      <strong>Fix:</strong> Check the ECR Console to ensure the
+                      image exists and the tag (e.g., `latest`) matches exactly.
+                    </li>
+                  </ul>
                 </div>
-            </section>
-        </main>
+              </div>
+            </div>
+
+            <div class="aws-simulation-prompt">
+              <h3>Interactive Simulation</h3>
+              <p>Practice this entire workflow in our simulator now.</p>
+              <button class="cta-btn" onclick="startMasterclassMission()">
+                Start Masterclass Mission
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     <script src="simulator.js"></script>
-</body>
+  </body>
 </html>
